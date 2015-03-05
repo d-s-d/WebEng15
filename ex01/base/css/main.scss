@@ -25,18 +25,15 @@ body {
     background-color: $tabcolor;
     margin:0px;
     float:left;
+    height:62px;
   }
 
   #menu {
     float: right;
     margin: 0px;
     padding:0px;
-  }
-
-  img {
-    padding:0px;
-    margin:0px;
-    border: none;
+    background-color: yellow;
+    height: 62px;
   }
 }
 
