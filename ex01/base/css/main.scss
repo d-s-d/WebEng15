@@ -1,5 +1,82 @@
 @import 'reset';
 
+$tabcolor: #F4F4F4;
+
 body {
   background-color: #333333;
+  font-family: serif;
+}
+
+.sub-footer {
+  position: relative;
+  width: 24%;
+  /*margin-right: 10px;*/
+  float: left;
+}
+
+#container {
+  width:1024px;
+  padding:20px;
+  margin:auto;
+}
+
+#header {
+  #name {
+    background-color: $tabcolor;
+    margin:0px;
+    float:left;
+  }
+
+  #menu {
+    float: right;
+    margin: 0px;
+    padding:0px;
+  }
+
+  img {
+    padding:0px;
+    margin:0px;
+    border: none;
+  }
+}
+
+div[role=test] {
+  float:left;
+  width:auto;
+  margin:0px;
+  padding:0px;
+  min-width:600px;
+  background-color: yellow;
+}
+
+div[role=main] {
+  width: auto;
+  background: $tabcolor url('../images/bg1.png') no-repeat 20px 20px;
+  background-size: 96%;
+  background-origin: padding-box;
+  float: left;
+  margin:0px;
+  padding:20px;
+
+  #introduction {
+    width: 40%;
+    background-color: rgba(75,75,75,0.5);
+    color: white;
+    padding: 20px;
+    text-align: justify;
+  }
+}
+
+
+div[role=footer] {
+  position: relative;
+  width: auto;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #056878;
+  float: left;
+}
+
+#p1 {
+  width: 100%;
 }
