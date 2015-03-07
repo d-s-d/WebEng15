@@ -14,11 +14,22 @@ body {
   float: left;
 }
 
-#container {
+@media(max-width: 768px)
+{
+  .sm-container {
+    width:512px;
+    background-color: yellow;
+    margin: auto;
+  }
+}
+
+.container {
   width:1024px;
   padding:20px;
   margin:auto;
 }
+
+
 
 #header {
   #name {
