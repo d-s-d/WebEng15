@@ -76,7 +76,7 @@ body {
 
 .main-row {
   //width: auto;
-  min-height: $bg-image-height - 40;
+  height: $bg-image-height - 40;
   background: url('../images/bg1.png') no-repeat;
   background-origin: padding-box;
   float: left;
@@ -84,13 +84,12 @@ body {
   border: solid $tab-bg-color;
   border-width: 20px 20px 10px 20px;
 
-
   #introduction {
     width: 40%;
     background-color: rgba(75,75,75,0.5);
     color: white;
-    margin: 20px;
     padding: 20px;
+    height: $bg-image-height - 80;
     text-align: justify;
   }
 }
