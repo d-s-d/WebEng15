@@ -33,6 +33,7 @@ $screen-lg-min: $bg-image-width+(2*20);
 body {
   background-color: #333333;
   font-family: serif;
+  font-size:11pt;
 }
 
 .sub-footer {
@@ -76,11 +77,14 @@ body {
 
 .main-row {
   //width: auto;
-  min-height: $bg-image-height;
-  background: $tab-bg-color url('../images/bg1.png') no-repeat 20px 20px;
+  min-height: $bg-image-height - 40;
+  background: url('../images/bg1.png') no-repeat;
   background-origin: padding-box;
   float: left;
   padding: 20px;
+  border: solid $tab-bg-color;
+  border-width: 20px 20px 10px 20px;
+
 
   #introduction {
     width: 40%;
@@ -93,7 +97,8 @@ body {
 }
 
 .footer-row {
-  background-color: $tab-bg-color;
+  border: solid $tab-bg-color;
+  border-width: 10px 20px 20px 20px;
   position: relative;
   width:auto;
   padding: 20px;
@@ -103,14 +108,34 @@ body {
 
   .col-3
   {
-    //float: left;
+    float: left;
     display:inline-block;
     width:25%;
+    text-align: justify;
+
+    > * {
+      margin: 0px 10px 0px 10px;
+    }
+  }
+
+  .follow {
+    width:auto;
+    img {
+      display: inline-block;
+      float:left;
+      //height:40px;
+      width:20%;
+    }
+  }
+  .col-3:after {
+    content:'';
+    display: block;
+    clear: both;
   }
 
   #lastprojectimage
   {
-    width: 80px;
+    width: 80%;
   }
 }
 
