@@ -6,6 +6,7 @@ $bg-image-padding: 20px;
 $menu-image-height: 62px;
 
 $tab-bg-color: #F4F4F4;
+$body-bg-color: #333333;
 
 // Screen resolutions
 $screen-xxs-max: 479px;
@@ -27,11 +28,8 @@ $screen-lg-min: $bg-image-width+(2*20);
 // for devices with width 1280+
 
 
-
-
-
 body {
-  background-color: #333333;
+  background-color: $body-bg-color;
   font-family: serif;
   font-size:11pt;
 }
@@ -59,8 +57,9 @@ body {
     background-color: $tab-bg-color;
     float:left;
     height:$menu-image-height - 40;
-    width:35%;
+    width:30%;
     padding: 20px;
+    color: $body-bg-color;
   }
 
   .menu-col {
@@ -110,12 +109,9 @@ body {
   {
     float: left;
     display:inline-block;
-    width:25%;
+    width:23%;
     text-align: justify;
-
-    > * {
-      margin: 0px 10px 0px 10px;
-    }
+    padding: 1%;
   }
 
   .follow {
