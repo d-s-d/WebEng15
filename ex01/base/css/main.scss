@@ -77,7 +77,6 @@ body {
 .main-row {
   //width: auto;
   height: $bg-image-height - 40;
-  background: url('../images/bg1.png') no-repeat;
   background-origin: padding-box;
   float: left;
   padding: 20px;
@@ -92,6 +91,11 @@ body {
     height: $bg-image-height - 80;
     text-align: justify;
   }
+}
+
+.main-row-index {
+  @extend .main-row;
+  background: url('../images/bg1.png') no-repeat;
 }
 
 .footer-row {
