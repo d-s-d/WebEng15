@@ -1,0 +1,27 @@
+.main-row-blog {
+  background: url('../images/bg2.png') no-repeat;
+  width:$bg-image-width;
+  height:$bg-image-height;
+  padding:0px;
+}
+
+.blog-list
+{
+  height: calc(100% - 20px);
+  padding: 0px 20px 20px 0px;
+  li {
+    float: left;
+    display: inline-block;
+    width: calc(50% - 40px);
+    height: calc(50% - 40px);
+    margin: 20px 0px 0px 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+  }
+  img {
+    width: 30%;
+    float:left;
+    margin-right: 10px;
+  }
+
+}

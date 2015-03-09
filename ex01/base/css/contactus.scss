@@ -1,0 +1,41 @@
+.main-row-contactus {
+  background: url('../images/bg4.png') no-repeat;
+  
+  #about {
+    color: white;
+	font-size: x-large;
+  }
+  
+  #contact-submission {
+    width: 49%;
+    min-width: 300px;
+    color: white;
+    font-size: large;
+    float: left;
+    
+    .name-input {
+		float: right;
+    }
+    
+    label {
+	  float: left;
+	  clear: both;
+	}
+  }
+  
+  #address-container {
+    width: 49%;
+	background-color: rgba(175,175,175,0.7);
+    text-align: right;
+    float: right;
+    
+    .float-text-left {
+      float: left;
+    }
+    
+    #address-data {
+      padding: 10%;
+      line-height: 20px;
+    }
+  }
+}

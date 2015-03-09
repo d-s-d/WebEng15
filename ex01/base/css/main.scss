@@ -28,6 +28,7 @@ $screen-lg-min: $bg-image-width+(2*20);
 // for devices with width 1280+
 
 @import 'portfolio';
+@import 'contactus';
 
 body {
   background-color: $body-bg-color;
@@ -117,55 +118,6 @@ button[type=button] {
   }
 }
 
-.main-row-blog {
-  background: url('../images/bg2.png') no-repeat;
-  width:$bg-image-width;
-  height:$bg-image-height;
-  padding:0px;
-}
-
-.main-row-contactus {
-  background: url('../images/bg4.png') no-repeat;
-  
-  #about {
-    color: white;
-	font-size: x-large;
-  }
-  
-  #contact-submission {
-    width: 49%;
-    min-width: 300px;
-    color: white;
-    font-size: large;
-    float: left;
-    
-    .name-input {
-		float: right;
-    }
-    
-    label {
-	  float: left;
-	  clear: both;
-	}
-  }
-  
-  #address-container {
-    width: 49%;
-	background-color: rgba(175,175,175,0.7);
-    text-align: right;
-    float: right;
-    
-    .float-text-left {
-      float: left;
-    }
-    
-    #address-data {
-      padding: 10%;
-      line-height: 20px;
-    }
-  }
-}
-
 .footer-row {
   border: solid $tab-bg-color;
   border-width: 10px 20px 20px 20px;
@@ -203,25 +155,4 @@ button[type=button] {
   #qcode {
 	width: 50%;
   }
-}
-
-.blog-list
-{
-  height: calc(100% - 20px);
-  padding: 0px 20px 20px 0px;
-  li {
-    float: left;
-    display: inline-block;
-    width: calc(50% - 40px);
-    height: calc(50% - 40px);
-    margin: 20px 0px 0px 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 10px;
-  }
-  img {
-    width: 30%;
-    float:left;
-    margin-right: 10px;
-  }
-
 }
