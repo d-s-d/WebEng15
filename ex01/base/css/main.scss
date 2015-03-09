@@ -27,6 +27,8 @@ $screen-md-max: 1199px;
 $screen-lg-min: $bg-image-width+(2*20);
 // for devices with width 1280+
 
+@import 'portfolio';
+
 body {
   background-color: $body-bg-color;
   font-family: serif;
@@ -120,32 +122,6 @@ button[type=button] {
   width:$bg-image-width;
   height:$bg-image-height;
   padding:0px;
-}
-
-.main-row-portfolio {
-  @extend .main-row;
-  background: url('../images/bg3.png') no-repeat;
-  
-  .portfolio-main-col {
-  width: $bg-image-width;
-  font: todo;
-  }
-  
-  .portfolio-item {
-    background-color: white;
-    margin: 0px 20px 20px 0px;
-    width: $bg-image-width / 4 - 25px;
-    height: $bg-image-height / 2 - 30px;
-    float: left;
-    
-    .portfolio-item-title {
-    padding: 10px;
-    }
-  }
-  
-  img {
-  width: 100%;
-  }
 }
 
 .main-row-contactus {
