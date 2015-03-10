@@ -34,6 +34,7 @@ $screen-lg-min: $bg-image-width+(2*20);
 
 @import 'portfolio';
 @import 'contactus';
+@import 'blog';
 
 body {
   background-color: $body-bg-color;
