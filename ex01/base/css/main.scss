@@ -169,6 +169,7 @@ button[type=button] {
     width:23%;
     text-align: justify;
     padding: 1%;
+      // todo: title not only strong, but larger size..    
   }
 
   .follow {
@@ -188,6 +189,26 @@ button[type=button] {
   }
   
   #qcode {
-	width: 50%;
+	  width: 50%;
+  }
+}
+
+@media screen and ( max-width: $screen-xs-max )
+{
+  .footer-row {
+    .col-3 {
+      width: 100%;
+      // todo: title not only strong, but larger size..
+    }
+
+    .follow {
+      img {
+        width:8%;
+      }
+    }
+
+    #qcode {
+      width: 0%;
+    }
   }
 }
