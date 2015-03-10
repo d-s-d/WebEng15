@@ -9,17 +9,22 @@ $tab-bg-color: #F4F4F4;
 $body-bg-color: #333333;
 
 // Screen resolutions
+
+// mobile portrait
 $screen-xxs-max: 479px;
 // for devices with width <= 480
 
+// mobile landscape
 $screen-xs-min: 480px;
 // for devices with width 480 .. 767
 $screen-xs-max: 767px;
 
+// tablet portrait
 $screen-sm-min: 768px;
 // for devices with width 768 .. 1023
 $screen-sm-max: 991px;
 
+// desktop / tablet-landscape
 $screen-md-min: 992px;
 // for devices with width 1024 .. 1279
 $screen-md-max: 1199px;
@@ -116,6 +121,13 @@ button[type=button] {
     padding: 20px;
     height: $bg-image-height - 80;
     text-align: justify;
+  }
+
+  @media screen and ( max-width: $screen-xs-max )
+  {
+    #introduction {
+      width: auto;
+    }
   }
 }
 
