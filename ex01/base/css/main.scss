@@ -81,15 +81,17 @@ button[type=button] {
     background-color: $tab-bg-color;
     float:left;
     height:$menu-image-height;
-    width:30%;
+    width:28%;
     padding: 0px 0px 0px 20px;
     color: $body-bg-color;
+
   }
 
   .menu-col {
     float: left;
     height: $menu-image-height;
-    padding: 0px 20px 0px 80px;
+    padding:0% 0% 0% 5%;
+    //padding: 0px 20px 0px 80px;
 
     img {
       float: right;
@@ -101,7 +103,7 @@ button[type=button] {
 
 @media screen and ( max-width: $screen-xs-max )
 {
-  .header-row{
+  .header-row {
     height: 30px;
 
     .title-col {
@@ -110,7 +112,8 @@ button[type=button] {
 
     .menu-col {
       height: 30px;
-      float: right;
+      float: left;
+      padding:0% 0% 0% 10%;
 
       img {
         height: 30px;
@@ -128,10 +131,6 @@ button[type=button] {
   border: solid $tab-bg-color;
   border-width: 20px 20px 10px 20px;
   float: left;
-
-  @media screen and (min-width: $screen-lg-min) {
-    min-width: $bg-image-width - 40;
-  }
 }
 
 .main-row-index {
