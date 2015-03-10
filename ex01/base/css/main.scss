@@ -97,6 +97,7 @@ button[type=button] {
 
 .main-row {
   width: $bg-image-width - 40;
+  width:auto;
   height: $bg-image-height - 40;
   background-origin: padding-box;
   padding: 20px;
