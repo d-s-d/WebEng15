@@ -122,12 +122,16 @@ button[type=button] {
 
 .main-row {
   width: calc(100% - 80px);
-  height: $bg-image-height - 40;
+  min-height: $bg-image-height - 40;
   background-origin: padding-box;
   padding: 20px;
   border: solid $tab-bg-color;
   border-width: 20px 20px 10px 20px;
   float: left;
+
+  @media screen and (min-width: $screen-lg-min) {
+    min-width: $bg-image-width - 40;
+  }
 }
 
 .main-row-index {
