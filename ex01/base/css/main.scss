@@ -121,7 +121,7 @@ button[type=button] {
 }
 
 .main-row {
-  width: $bg-image-width - 80;
+  width: calc(100% - 80px);
   height: $bg-image-height - 40;
   background-origin: padding-box;
   padding: 20px;
@@ -147,6 +147,10 @@ button[type=button] {
     #introduction {
       width: auto;
     }
+
+    .main-row-index {
+      width: $screen-xs-min - 80;
+    }
   }
 }
 
@@ -154,7 +158,7 @@ button[type=button] {
   border: solid $tab-bg-color;
   border-width: 10px 20px 20px 20px;
   position: relative;
-  width: $bg-image-width - 80;
+  width: calc(100% - 80px);
   padding: 20px;
   color:white;
   background-color: #056878;
