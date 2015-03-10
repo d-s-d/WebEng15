@@ -1,8 +1,8 @@
 .main-row-blog {
   background: url('../images/bg2.png') no-repeat;
-  width:$bg-image-width;
-  height:$bg-image-height;
-  padding:0px;
+  //width:$bg-image-width;
+  //height:$bg-image-height;
+  //padding:0px;
 }
 
 .blog-list
@@ -38,8 +38,9 @@
 
   .main-row-blog {
     background: url('../images/bg1.png') no-repeat;
-    width:$bg-image-width;
-    height: 10000px;
+    //width:$bg-image-width;
+    background-attachment: fixed;
+    height: auto;
     padding:0px;
   }
 
