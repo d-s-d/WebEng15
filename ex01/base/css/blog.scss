@@ -7,17 +7,21 @@
 
 .blog-list
 {
-  height: calc(100% - 20px);
-  padding: 0px 20px 20px 0px;
+  //height: ($bg-image-height - 40px) - 20px;
+  height: 100%;
+  //padding: 0px 20px 20px 0px;
+  margin: -20px 0px 0px -20px;
   li {
     float: left;
     display: inline-block;
     width: calc(50% - 40px);
-    height: calc(50% - 40px);
+    height: $bg-image-height/2 - 50px;
     margin: 20px 0px 0px 20px;
+//    margin: 20px 20px 20px 20px;
     background-color: rgba(255, 255, 255, 0.6);
     padding: 10px;
   }
+
   img {
     width: 30%;
     float:left;
@@ -37,11 +41,7 @@
   }
 
   .main-row-blog {
-    background: url('../images/bg1.png') no-repeat;
-    //width:$bg-image-width;
-    background-attachment: fixed;
     height: auto;
-    padding:0px;
   }
 
 }
