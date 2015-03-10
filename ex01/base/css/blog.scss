@@ -23,5 +23,25 @@
     float:left;
     margin-right: 10px;
   }
+}
+
+@media screen and ( max-width: $screen-xs-max )
+{
+  .blog-list
+  {
+    li
+    {
+      width: calc(100% - 40px);
+      height: auto;
+    }
+  }
+
+  .main-row-blog {
+    background: url('../images/bg1.png') no-repeat;
+    width:$bg-image-width;
+    height: 10000px;
+    padding:0px;
+  }
 
 }
+
