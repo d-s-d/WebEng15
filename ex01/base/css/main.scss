@@ -94,10 +94,32 @@ button[type=button] {
     padding: 0px 20px 0px 0px;
 
     img {
+      float: right;
       display: inline-block;
       margin:0px 2px 0px 2px;
     }
   }
+}
+
+@media screen and ( max-width: $screen-xs-max )
+{
+  .header-row{
+    height: 30px;
+
+    .title-col {
+      height: 30px;
+    }
+
+    .menu-col {
+      height: 30px;
+      float: right;
+
+      img {
+        height: 30px;
+      }
+    }
+  }
+
 }
 
 .main-row {
