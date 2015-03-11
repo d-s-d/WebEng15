@@ -86,7 +86,7 @@ button[type=button] {
 }
 
 .header-row {
-  padding-top: 20px;
+  padding-top: 2em;
   .title-col {
     background-color: $tab-bg-color;
     float:left;
@@ -95,6 +95,9 @@ button[type=button] {
     padding: 0px 0px 0px 20px;
     color: $body-bg-color;
 
+    h1 {
+      padding-top: 1em;
+    }
   }
 
   .menu-col {
