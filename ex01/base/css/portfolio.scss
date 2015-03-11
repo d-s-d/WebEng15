@@ -1,9 +1,10 @@
 .main-row-portfolio {
-  background: url('../images/bg3.png') no-repeat;
+  background: url('../images/bg3.png') repeat;
 
   
   .portfolio-main-col {
-    width: $bg-image-width;
+    //width: $bg-image-width;
+    width: calc(100%-40px);
     font: todo;
     margin: -20px 0px 0px -20px;
   }
@@ -11,12 +12,42 @@
   .portfolio-item {
     background-color: white;
     margin: 20px 0px 0px 20px;
-    width: $bg-image-width / 4 - 25px;
+    //width: $bg-image-width / 4 - 25px;
+    width: calc(25% - 20px);
     height: $bg-image-height / 2 - 30px;
     float: left;
     
+    img {
+      //max-width: $bg-image-width / 4 - 25px;
+    }
+
     .portfolio-item-title {
-    padding: 10px;
+      padding: 10px;
+    }   
+  }
+
+  // tablet portrait
+  @media screen and ( max-width: $screen-sm-max )
+  {
+    .portfolio-item {
+      width: calc(33% - 20px);
+      height: $bg-image-height / 2;
+    }
+  }
+
+  // mobile landscape
+  @media screen and ( max-width: $screen-xs-max )
+  {
+    .portfolio-item {
+      width: calc(50% - 20px);
+    }
+  }
+
+  // mobile portrait
+  @media screen and ( max-width: $screen-xxs-max )
+  {
+    .portfolio-item {
+      width: calc(100% - 20px);
     }
   }
   
