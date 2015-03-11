@@ -202,6 +202,10 @@ button[type=button] {
   .header-row {
     .title-col {
       height: 2em;
+      h1 {
+        font-size: 1em;
+        padding-top: 0.4em;
+      }
     }
 
     .menu-col {
@@ -222,6 +226,16 @@ button[type=button] {
     }
   }
 }
+
+@media screen and ( max-width: $screen-xs-min )
+{
+  .header-row {
+    .menu-col {
+      padding: 0px;
+    }
+  }
+}
+
 
 @import 'portfolio';
 @import 'contactus';
