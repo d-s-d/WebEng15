@@ -161,12 +161,11 @@ button[type=button] {
     width:23%;
     text-align: justify;
     padding: 1%;
-      // todo: title not only strong, but larger size..    
   }
 
   .follow {
     img {
-      width:18%;
+      width: 2.5em;
     }
   }
   
@@ -178,29 +177,29 @@ button[type=button] {
 
   #lastprojectimage {
     width: 100%;
+    max-width: 12em;
   }
   
   #qcode {
-	  width: 50%;
+    width: 100%;
+	max-width: 5em;
   }
 }
 
 @media screen and ( max-width: $screen-xs-max )
 {
   .header-row {
-    height: 30px;
-
     .title-col {
-      height: 30px;
+      height: 2em;
     }
 
     .menu-col {
-      height: 30px;
+      height: 2em;
       float: left;
       padding:0% 0% 0% 10%;
 
       img {
-        height: 30px;
+        height: 2em;
       }
     }
   }
@@ -208,17 +207,6 @@ button[type=button] {
   .footer-row {
     .col-3 {
       width: 100%;
-      // todo: title not only strong, but larger size..
-    }
-
-    .follow {
-      img {
-        width:8%;
-      }
-    }
-
-    #qcode {
-      width: 0%;
     }
   }
 }
