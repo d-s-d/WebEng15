@@ -87,17 +87,18 @@ button[type=button] {
 
 .header-row {
   padding-top: 2em;
+  max-height: $menu-image-height;
   .title-col {
     background-color: $tab-bg-color;
     float:left;
     font-style: normal;
-    height:$menu-image-height;
     width:28%;
-    padding: 0px 0px 0px 20px;
     color: $body-bg-color;
+    height:$menu-image-height;
 
     h1 {
       padding-top: 0.8em;
+      padding-left: 20px;
       font-size: 1.5em;
       font-family: "Times New Roman";
       letter-spacing: 0.05em;
@@ -107,11 +108,12 @@ button[type=button] {
 
   .menu-col {
     float: left;
-    height: $menu-image-height;
     padding:0% 0% 0% 5%;
+    width: 60%;
     //padding: 0px 20px 0px 80px;
 
     img {
+
       float: right;
       display: inline-block;
       margin:0px 2px 0px 2px;
