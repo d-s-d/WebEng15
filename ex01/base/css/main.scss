@@ -125,14 +125,15 @@ button[type=button] {
 }
 
 .main-row-index {
-  background: url('../images/bg1.png') no-repeat;
+  background: url('../images/bg1.png') repeat;
+  height: auto;
 
   #introduction {
-    width: 40%;
+    width: $bg-image-width * 0.4;
     background-color: rgba(75,75,75,0.5);
-    color: white;
+    color: rgba(225, 225, 225, 0.8);
     padding: 20px;
-    height: $bg-image-height - 80;
+    height: auto;
     text-align: justify;
   }
 
