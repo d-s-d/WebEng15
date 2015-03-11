@@ -1,15 +1,9 @@
 .main-row-blog {
   background: url('../images/bg2.png') no-repeat;
-  //width:$bg-image-width;
-  //height:$bg-image-height;
-  //padding:0px;
+  background-color: black;
 }
 
-.blog-list
-{
-  //height: ($bg-image-height - 40px) - 20px;
-  height: 100%;
-  //padding: 0px 20px 20px 0px;
+.blog-list {
   margin: -20px 0px 0px -20px;
   li {
     float: left;
@@ -17,13 +11,13 @@
     width: calc(50% - 40px);
     height: $bg-image-height/2 - 50px;
     margin: 20px 0px 0px 20px;
-//    margin: 20px 20px 20px 20px;
     background-color: rgba(255, 255, 255, 0.6);
     padding: 10px;
   }
 
   img {
     width: 30%;
+    min-width: 10em;
     float:left;
     margin-right: 10px;
   }
@@ -31,10 +25,8 @@
 
 @media screen and ( max-width: $screen-xs-max )
 {
-  .blog-list
-  {
-    li
-    {
+  .blog-list {
+    li {
       width: calc(100% - 40px);
       height: auto;
     }
@@ -43,6 +35,5 @@
   .main-row-blog {
     height: auto;
   }
-
 }
 
