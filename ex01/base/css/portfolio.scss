@@ -1,5 +1,6 @@
 .main-row-portfolio {
-  background: url('../images/bg3.png') repeat;
+  background: url('../images/bg3.png') no-repeat;
+  background-color: #000;
 
   
   .portfolio-main-col {
@@ -10,14 +11,14 @@
       
       margin: 20px 0px 0px 20px;
       width: calc(25% - 20px);
-      height: $bg-image-height / 2 - 30px;
+      //height: $bg-image-height / 2 - 30px;
       float: left;
 
       .portfolio-item {
         margin: auto;
         background-color: white;
         max-width: $bg-image-width / 4 - 25px;
-        height:  $bg-image-height / 2 - 30px;
+        height:  $bg-image-height / 2;
 
         .portfolio-item-title {
           padding: 10px;
@@ -32,7 +33,6 @@
   @media screen and ( max-width: $screen-sm-max ) {
     .portfolio-main-col li {
       width: calc(33% - 20px);
-      height: $bg-image-height / 2;
     }
   }
 
