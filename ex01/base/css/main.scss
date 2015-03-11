@@ -141,6 +141,7 @@ button[type=button] {
     color: rgba(225, 225, 225, 0.8);
     padding: 20px;
     height: auto;
+    min-height: $bg-image-height - 80;
     text-align: justify;
   }
 
