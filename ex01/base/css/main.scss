@@ -92,7 +92,7 @@ button[type=button] {
     background-color: $tab-bg-color;
     float:left;
     font-style: normal;
-    width:28%;
+    width:30%;
     color: $body-bg-color;
     height:$menu-image-height;
 
@@ -108,15 +108,15 @@ button[type=button] {
 
   .menu-col {
     float: left;
-    padding:0% 0% 0% 5%;
-    width: 60%;
+    padding:0% 0% 0% 2%;
+    width: 524px;
     //padding: 0px 20px 0px 80px;
 
     img {
 
       float: right;
       display: inline-block;
-      margin:0px 2px 0px 2px;
+      margin:0px 0px 0px 4px;
     }
   }
 }
@@ -206,8 +206,9 @@ button[type=button] {
 
     .menu-col {
       height: 2em;
+      width:280px;
       float: left;
-      padding:0% 0% 0% 10%;
+      padding: 0px 0px 0px 5%;
 
       img {
         height: 2em;
