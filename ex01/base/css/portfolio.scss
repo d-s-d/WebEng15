@@ -7,29 +7,32 @@
     width: calc(100%-40px);
     font: todo;
     margin: -20px 0px 0px -20px;
+
+    li {
+      background-color: white;
+      margin: 20px 0px 0px 20px;
+      //width: $bg-image-width / 4 - 25px;
+      width: calc(25% - 20px);
+      height: $bg-image-height / 2 - 30px;
+      float: left;
+      
+      img {
+        //max-width: $bg-image-width / 4 - 25px;
+      }
+
+      .portfolio-item-title {
+        padding: 10px;
+      }
+    }
   }
   
   .portfolio-item {
-    background-color: white;
-    margin: 20px 0px 0px 20px;
-    //width: $bg-image-width / 4 - 25px;
-    width: calc(25% - 20px);
-    height: $bg-image-height / 2 - 30px;
-    float: left;
-    
-    img {
-      //max-width: $bg-image-width / 4 - 25px;
-    }
 
-    .portfolio-item-title {
-      padding: 10px;
-    }   
   }
 
   // tablet portrait
-  @media screen and ( max-width: $screen-sm-max )
-  {
-    .portfolio-item {
+  @media screen and ( max-width: $screen-sm-max ) {
+    .portfolio-main-col li {
       width: calc(33% - 20px);
       height: $bg-image-height / 2;
     }
@@ -38,7 +41,7 @@
   // mobile landscape
   @media screen and ( max-width: $screen-xs-max )
   {
-    .portfolio-item {
+    .portfolio-main-col li {
       width: calc(50% - 20px);
     }
   }
@@ -46,7 +49,7 @@
   // mobile portrait
   @media screen and ( max-width: $screen-xxs-max )
   {
-    .portfolio-item {
+    .portfolio-main-col li {
       width: calc(100% - 20px);
     }
   }
