@@ -4,7 +4,6 @@
 
   
   .portfolio-main-col {
-    font: todo;
     margin: -20px 0px 0px -20px;
 
     li {
@@ -27,7 +26,6 @@
     }
   }
   
-
 
   // tablet portrait
   @media screen and ( max-width: $screen-sm-max ) {
@@ -53,6 +51,6 @@
   }
   
   img {
-  width: 100%;
+    width: 100%;
   }
 }
