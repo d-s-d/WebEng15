@@ -1,5 +1,6 @@
 .main-row-contactus {
   background: url('../images/bg4.png') no-repeat;
+  background-color: rgb(65,65,65);
 
   #about {
     color: white;
@@ -8,19 +9,18 @@
   
   #contact-submission {
     width: 49%;
-    //min-width: 300px;
     color: white;
     font-size: large;
     float: left;
 
     @media screen and (max-width: $screen-xs-max) {
-      width: 99%;
+      width: 100%;
       margin-bottom: 1em;
     }
 
 
     .name-input {
-		float: right;
+	  float: right;
     }
     
     label {
@@ -31,7 +31,7 @@
   
   #address-container {
     width: 49%;
-	background-color: rgba(175,175,175,0.7);
+	background-color: rgba(255,255,255,0.6);
     text-align: right;
     float: right;
     
@@ -40,12 +40,11 @@
     }
     
     #address-data {
-      padding: 10%;
-      line-height: 1.5em;
+      padding: 5%;
     }
 
     @media screen and (max-width: $screen-xs-max) {
-      width: 99%;
+      width: 100%;
     }
 
   }
