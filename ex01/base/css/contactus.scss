@@ -4,13 +4,13 @@
 
   #about {
     color: white;
-	font-size: x-large;
+    font-size: 1.5em;
   }
   
   #contact-submission {
     width: 49%;
     color: white;
-    font-size: large;
+    font-size: 1.125em;
     float: left;
 
     @media screen and (max-width: $screen-xs-max) {
@@ -18,9 +18,8 @@
       margin-bottom: 1em;
     }
 
-
     .name-input {
-	  float: right;
+	    float: right;
     }
     
     label {
@@ -31,7 +30,7 @@
   
   #address-container {
     width: 49%;
-	background-color: rgba(255,255,255,0.6);
+	  background-color: rgba(255,255,255,0.6);
     text-align: right;
     float: right;
     
@@ -46,7 +45,6 @@
     @media screen and (max-width: $screen-xs-max) {
       width: 100%;
     }
-
   }
 }
 
