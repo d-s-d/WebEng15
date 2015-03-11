@@ -36,7 +36,17 @@ $screen-lg-min: $bg-image-width+(2*20);
 body {
   background-color: $body-bg-color;
   font-family: serif;
-  font-size:11pt;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
 }
 
 textarea {
@@ -99,28 +109,6 @@ button[type=button] {
       margin:0px 2px 0px 2px;
     }
   }
-}
-
-@media screen and ( max-width: $screen-xs-max )
-{
-  .header-row {
-    height: 30px;
-
-    .title-col {
-      height: 30px;
-    }
-
-    .menu-col {
-      height: 30px;
-      float: left;
-      padding:0% 0% 0% 10%;
-
-      img {
-        height: 30px;
-      }
-    }
-  }
-
 }
 
 .main-row {
@@ -199,6 +187,24 @@ button[type=button] {
 
 @media screen and ( max-width: $screen-xs-max )
 {
+  .header-row {
+    height: 30px;
+
+    .title-col {
+      height: 30px;
+    }
+
+    .menu-col {
+      height: 30px;
+      float: left;
+      padding:0% 0% 0% 10%;
+
+      img {
+        height: 30px;
+      }
+    }
+  }
+
   .footer-row {
     .col-3 {
       width: 100%;
