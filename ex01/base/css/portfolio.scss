@@ -7,29 +7,26 @@
     margin: -20px 0px 0px -20px;
 
     li {
-      
-      margin: 20px 0px 0px 20px;
-      width: calc(25% - 20px);
-      //height: $bg-image-height / 2 - 30px;
       float: left;
 
+      width: calc(25% - 20px);
+      margin: 20px 0px 0px 20px;
+
       .portfolio-item {
-        margin: auto;
-        background-color: white;
         max-width: $bg-image-width / 4 - 25px;
-        height:  $bg-image-height / 2;
+        height: $bg-image-height / 2;
+        margin: auto;
+
+        background-color: white;
 
         .portfolio-item-title {
           padding: 10px;
+
           color: rgba(75, 75, 75, 1.0);
-          strong {
-            color: rgba(75, 75, 75, 1.0);
-          }
         }
       }
     }
   }
-  
 
   // tablet portrait
   @media screen and ( max-width: $screen-sm-max ) {

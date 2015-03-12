@@ -32,6 +32,13 @@ $screen-md-max: 1199px;
 $screen-lg-min: $bg-image-width+(2*20);
 // for devices with width 1280+
 
+/*
+- position
+- display, box model
+- color
+- text
+- other
+*/
 
 body {
   background-color: $body-bg-color;
@@ -51,10 +58,10 @@ h1 {
 
 textarea {
   width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: 1px solid black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 input[type=text] {
@@ -89,32 +96,35 @@ button[type=button] {
   padding-top: 2em;
   max-height: $menu-image-height;
   .title-col {
-    background-color: $tab-bg-color;
     float:left;
-    font-style: normal;
+
     width:30%;
-    color: $body-bg-color;
     height:$menu-image-height;
+
+    background-color: $tab-bg-color;
+    color: $body-bg-color;
 
     h1 {
       padding-top: 0.8em;
       padding-left: 20px;
+
+      color: #373c40;
+
       font-size: 1.5em;
       font-family: "Times New Roman";
       letter-spacing: 0.05em;
-      color: #373c40;
     }
   }
 
   .menu-col {
     float: left;
-    padding:0% 0% 0% 1.5%;
+
     width: 524px;
-    //padding: 0px 20px 0px 80px;
+    padding:0% 0% 0% 1.5%;
 
     img {
-
       float: left;
+
       display: inline-block;
       margin:0px 0px 0px 4px;
     }
@@ -122,13 +132,14 @@ button[type=button] {
 }
 
 .main-row {
+  float: left;
+
+  padding: 20px;
   width: calc(100% - 80px);
   min-height: $bg-image-height - 40;
   background-origin: padding-box;
-  padding: 20px;
   border: solid $tab-bg-color;
   border-width: 20px 20px 10px 20px;
-  float: left;
 }
 
 .main-row-index {
@@ -137,11 +148,13 @@ button[type=button] {
 
   #introduction {
     width: $bg-image-width * 0.4;
-    background-color: rgba(75,75,75,0.5);
-    color: rgba(225, 225, 225, 0.8);
-    padding: 20px;
     height: auto;
     min-height: $bg-image-height - 80;
+    padding: 20px;
+
+    background-color: rgba(75,75,75,0.5);
+    color: rgba(225, 225, 225, 0.8);
+
     text-align: justify;
   }
 
@@ -158,33 +171,30 @@ button[type=button] {
 }
 
 .footer-row {
+  float:left;
+
+  width: calc(100% - 80px);
   border: solid $tab-bg-color;
   border-width: 10px 20px 20px 20px;
-  position: relative;
-  width: calc(100% - 80px);
   padding: 20px;
+
   color:white;
   background-color: #056878;
-  float:left;
 
   .col-3 {
     float: left;
-    display:inline-block;
+
     width:23%;
-    text-align: justify;
     padding: 1%;
+    display:inline-block;
+
+    text-align: justify;
   }
 
   .follow {
     img {
       width: 2.5em;
     }
-  }
-  
-  .col-3:after {
-    content:'';
-    display: block;
-    clear: both;
   }
 
   #lastprojectimage {
@@ -204,15 +214,17 @@ button[type=button] {
     .title-col {
       height: 2em;
       h1 {
-        font-size: 1em;
         padding-top: 0.4em;
+
+        font-size: 1em;
       }
     }
 
     .menu-col {
-      height: 2em;
-      width:280px;
       float: left;
+
+      width:280px;
+      height: 2em;
       padding: 0px 0px 0px 5%;
 
       img {

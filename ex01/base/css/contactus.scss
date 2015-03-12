@@ -8,10 +8,13 @@
   }
   
   #contact-submission {
-    width: 49%;
-    color: rgba(225, 225, 225, 1.0);
-    font-size: 0.9em;
     float: left;
+
+    width: 49%;
+
+    color: rgba(225, 225, 225, 1.0);
+
+    font-size: 0.9em;
 
     @media screen and (max-width: $screen-xs-max) {
       width: 100%;
@@ -29,11 +32,14 @@
   }
   
   #address-container {
-    width: 49%;
-	  background-color: rgba(255,255,255,0.6);
-    text-align: right;
     float: right;
+
+    width: 49%;
+
+    background-color: rgba(255,255,255,0.6);
     color: rgba(75, 75, 75, 1.0);
+
+    text-align: right;
 
     .float-text-left {
       float: left;
