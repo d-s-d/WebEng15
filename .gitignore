@@ -38,4 +38,4 @@ crashlytics-build.properties
 *.css.map
 
 # sass output
-ex01/base/css/main.css
+ex*/base/css/*.css
