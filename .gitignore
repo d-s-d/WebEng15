@@ -38,4 +38,7 @@ crashlytics-build.properties
 *.css.map
 
 # sass output
-ex*/base/css/*.css
+**/css/*.css
+
+# Vim shit
+*.swp
