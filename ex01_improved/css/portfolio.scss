@@ -1,0 +1,56 @@
+.main-row-portfolio {
+  background: url('../images/bg3.png') no-repeat;
+  background-color: #000;
+  
+  .portfolio-main-col {
+    margin: -20px 0px 0px -20px;
+
+    li {
+      float: left;
+
+      width: calc(25% - 20px);
+      margin: 20px 0px 0px 20px;
+
+      .portfolio-item {
+        max-width: $bg-image-width / 4 - 25px;
+        height: $bg-image-height / 2;
+        margin: auto;
+
+        background-color: white;
+
+        .portfolio-item-title {
+          padding: 10px;
+
+          color: rgba(75, 75, 75, 1.0);
+        }
+      }
+    }
+  }
+
+  // tablet portrait
+  @media screen and ( max-width: $screen-sm-max ) {
+    .portfolio-main-col li {
+      width: calc(33% - 20px);
+    }
+  }
+
+  // mobile landscape
+  @media screen and ( max-width: $screen-xs-max )
+  {
+    .portfolio-main-col li {
+      width: calc(50% - 20px);
+    }
+  }
+
+  // mobile portrait
+  @media screen and ( max-width: $screen-xxs-max )
+  {
+    .portfolio-main-col li {
+      width: calc(100% - 20px);
+    }
+  }
+  
+  img {
+    width: 100%;
+  }
+}

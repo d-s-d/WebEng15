@@ -1,0 +1,26 @@
+.main-row-index {
+  background: url('../images/bg1.png') no-repeat;
+
+  #introduction {
+    width: $bg-image-width * 0.4;
+    height: auto;
+    min-height: $bg-image-height - 80;
+    padding: 20px;
+
+    background-color: rgba(75,75,75,0.5);
+    color: rgba(225, 225, 225, 0.8);
+
+    text-align: justify;
+  }
+
+  @media screen and ( max-width: $screen-xs-max )
+  {
+    #introduction {
+      width: auto;
+    }
+
+    .main-row-index {
+      width: $screen-xs-min - 80;
+    }
+  }
+}

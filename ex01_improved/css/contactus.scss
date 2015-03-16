@@ -1,0 +1,57 @@
+.main-row-contactus {
+  background: url('../images/bg4.png') no-repeat;
+  background-color: rgb(65,65,65);
+
+  #about {
+    color: white;
+    font-size: 2.5em;
+  }
+  
+  #contact-submission {
+    float: left;
+
+    width: 49%;
+
+    color: rgba(225, 225, 225, 1.0);
+
+    font-size: 0.9em;
+
+    @media screen and (max-width: $screen-xs-max) {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+
+    .name-input {
+	    float: right;
+    }
+    
+    label {
+  	  float: left;
+  	  clear: both;
+  	}
+  }
+  
+  #address-container {
+    float: right;
+
+    width: 49%;
+
+    background-color: rgba(255,255,255,0.6);
+    color: rgba(75, 75, 75, 1.0);
+
+    text-align: right;
+
+    .float-text-left {
+      float: left;
+    }
+    
+    #address-data {
+      padding: 5%;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+      width: 100%;
+    }
+  }
+}
+

@@ -1,0 +1,255 @@
+@import 'reset';
+
+$bg-image-width: 1024px;
+$bg-image-height: 532px;
+$bg-image-padding: 20px;
+$menu-image-height: 62px;
+
+$tab-bg-color: #F4F4F4;
+$body-bg-color: #333333;
+
+// Screen resolutions
+
+// mobile portrait
+$screen-xxs-max: 479px;
+// for devices with width <= 480
+
+// mobile landscape
+$screen-xs-min: 480px;
+// for devices with width 480 .. 767
+$screen-xs-max: 767px;
+
+// tablet portrait
+$screen-sm-min: 768px;
+// for devices with width 768 .. 1023
+$screen-sm-max: 991px;
+
+// desktop / tablet-landscape
+$screen-md-min: 992px;
+// for devices with width 1024 .. 1279
+$screen-md-max: 1199px;
+
+$screen-lg-min: $bg-image-width+(2*20);
+// for devices with width 1280+
+
+/*
+- position
+- display, box model
+- color
+- text
+- other
+*/
+
+body {
+  background-color: $body-bg-color;
+  font-family: "Times New Roman";
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+input[type=text] {
+  padding: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: 0px solid black; 
+}
+
+button[type=button] {
+  padding: 5px 5px;
+  border: 0px none;
+  background-color: white;
+  cursor: pointer;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.container {
+  width:100%;
+  margin:auto;
+
+  @media(min-width: $screen-lg-min)
+  {
+    max-width: $bg-image-width+40;
+  }
+}
+
+.header-row {
+  padding-top: 2em;
+  max-height: $menu-image-height;
+  .title-col {
+    float:left;
+
+    width:30%;
+    height:$menu-image-height;
+
+    background-color: $tab-bg-color;
+    color: $body-bg-color;
+
+    h1 {
+      padding-top: 0.8em;
+      padding-left: 20px;
+
+      color: #373c40;
+
+      font-size: 1.5em;
+      font-family: "Times New Roman";
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .menu-col {
+    float: left;
+
+    width: 524px;
+    padding:0% 0% 0% 10%;
+
+    img {
+      display: inline-block;
+      margin:0px 0px 0px 4px;
+    }
+    
+    a:hover {
+	  -webkit-animation-name: shake;
+	     -moz-animation-name: shake;
+	          animation-name: shake;
+	  
+	  -webkit-animation-duration: 0.8s;
+	     -moz-animation-duration: 0.8s;
+	          animation-duration: 0.8s;
+	  
+	  -webkit-transform-origin:50% 50%;
+	     -moz-transform-origin:50% 50%;	
+	          transform-origin:50% 50%;
+	  
+	  -webkit-animation-iteration-count: infinite;
+	     -moz-animation-iteration-count: infinite;
+	          animation-iteration-count: infinite;
+	  
+	  -webkit-animation-timing-function: linear;
+	     -moz-animation-timing-function: linear;
+	          animation-timing-function: linear;
+	}
+  }
+}
+
+.main-iframe {
+  float: left;
+  width: calc(100% - 40px);
+  height: auto;
+  min-height: $bg-image-height;
+  background-origin: padding-box;
+  border: solid $tab-bg-color;
+  border-width: 20px 20px 10px 20px;
+}
+
+.main-row {
+  float: left;
+  padding: 20px;
+  width: calc(100% - 40px);
+  min-height: $bg-image-height - 40;
+  background-origin: padding-box;
+}
+
+.footer-row {
+  float:left;
+
+  width: calc(100% - 80px);
+  border: solid $tab-bg-color;
+  border-width: 10px 20px 20px 20px;
+  padding: 20px;
+
+  color:white;
+  background-color: #056878;
+
+  .col-3 {
+    float: left;
+
+    width:23%;
+    padding: 1%;
+    display:inline-block;
+
+    text-align: justify;
+  }
+
+  .follow {
+    img {
+      width: 2.5em;
+    }
+  }
+
+  #lastprojectimage {
+    width: 100%;
+    max-width: 12em;
+  }
+  
+  #qcode {
+    width: 100%;
+	max-width: 5em;
+  }
+}
+
+@media screen and ( max-width: $screen-xs-max )
+{
+  .header-row {
+    .title-col {
+      height: 2em;
+      h1 {
+        padding-top: 0.4em;
+
+        font-size: 1em;
+      }
+    }
+
+    .menu-col {
+      float: left;
+
+      width:280px;
+      height: 2em;
+      padding: 0px 0px 0px 5%;
+
+      img {
+        height: 2em;
+      }
+    }
+  }
+
+  .footer-row {
+    .col-3 {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and ( max-width: $screen-xs-min )
+{
+  .header-row {
+    .menu-col {
+      padding: 0px;
+    }
+  }
+}
+
+@import 'animations';
+@import 'index';
+@import 'portfolio';
+@import 'contactus';
+@import 'blog';
