@@ -1,0 +1,82 @@
+$cm-image-width: 127px;
+$cm-padding: 1.4em;
+
+.corner-menu {
+  position: relative;
+  width: 2*$cm-image-width;
+  height: 2*$cm-image-width;
+  padding: $cm-padding;
+  line-height: 0em;
+  background-color: white;
+  opacity: 0.2;
+  z-index: $container-z-index + 1;
+  -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+          border-radius: 20px;       
+          
+  img:hover {
+	-webkit-animation-name: shake;
+	   -moz-animation-name: shake;
+	        animation-name: shake;
+	  
+	-webkit-animation-duration: 0.8s;
+	   -moz-animation-duration: 0.8s;
+	        animation-duration: 0.8s;
+	 
+	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
+	        animation-iteration-count: infinite;
+	  
+	-webkit-animation-timing-function: linear;
+	   -moz-animation-timing-function: linear;
+	        animation-timing-function: linear;
+  }
+          
+  .tl {
+    -webkit-border-radius: 10px 0px 0px 0px;
+       -moz-border-radius: 10px 0px 0px 0px;
+            border-radius: 10px 0px 0px 0px;
+  }
+  
+  .tr {
+    -webkit-border-radius: 0px 10px 0px 0px;
+       -moz-border-radius: 0px 10px 0px 0px;
+            border-radius: 0px 10px 0px 0px;
+  }
+  
+  .bl {
+    -webkit-border-radius: 0px 0px 0px 10px;
+       -moz-border-radius: 0px 0px 0px 10px;
+            border-radius: 0px 0px 0px 10px;
+  }
+  
+  .br {
+    -webkit-border-radius: 0px 0px 10px 0px;
+       -moz-border-radius: 0px 0px 10px 0px;
+            border-radius: 0px 0px 10px 0px;
+  }
+  
+  .foreground {
+    z-index: $container-z-index + 2;
+  }
+  
+  img {
+	cursor: pointer;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+  }
+  
+  .sticky {
+    position: absolute;
+    top: 6px;
+    left: 54px;
+  }
+}
+
+.corner-menu:hover {
+  opacity: 1;
+} 
