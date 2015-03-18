@@ -1,5 +1,7 @@
 @import 'reset';
 
+$container-z-index: 1;
+
 $bg-image-width: 1024px;
 $bg-image-height: 532px;
 $bg-image-padding: 20px;
@@ -7,6 +9,9 @@ $menu-image-height: 62px;
 
 $tab-bg-color: #F4F4F4;
 $body-bg-color: #333333;
+
+$cm-image-width: 127px;
+$cm-padding: 1.4em;
 
 // Screen resolutions
 
@@ -85,6 +90,9 @@ button[type=button] {
 .container {
   width:100%;
   margin:auto;
+  position: relative;
+  top: -2 * $cm-image-width;
+  z-index: $container-z-index;
 
   @media(min-width: $screen-lg-min)
   {
@@ -249,7 +257,8 @@ button[type=button] {
   }
 }
 
-
+@import 'animations';
+@import 'cornermenu';
 @import 'portfolio';
 @import 'contactus';
 @import 'blog';
