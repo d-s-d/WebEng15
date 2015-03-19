@@ -90,8 +90,6 @@ button[type=button] {
 .container {
   width:100%;
   margin:auto;
-  position: relative;
-  top: -2 * $cm-image-width;
   z-index: $container-z-index;
 
   @media(min-width: $screen-lg-min)
