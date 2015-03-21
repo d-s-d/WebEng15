@@ -11,7 +11,7 @@
      -moz-border-radius: 20px;
           border-radius: 20px;       
           
-  img:hover {
+  a > img:hover {
 	-webkit-animation-name: shake;
 	   -moz-animation-name: shake;
 	        animation-name: shake;
