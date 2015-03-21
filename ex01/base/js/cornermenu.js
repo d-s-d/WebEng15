@@ -10,15 +10,29 @@ sticky.data('sticked', false);
 const STICKY_PATH  = 'images/corner_menu/sticky_icon_';
 
 cm.draggable();
+
 cm.on('dragstop', function(event, ui) {
-    // if menu is not sticked
-    // calculate shortest distance to border
-    // queue animation
-    // done
+    var sticked = sticky.data('sticked');
+    var me = $(this);
+    var offset = me.offset();
+    var jq_window = $(window);
+    if(!sticked)
+    {
+        var distances = [offset.top, jq_window.width() - offset.left, jq_window.height()-offset.top, offset.left];
+        var targets = [
+            /* move up */ {top: 0},
+            /* move right */ {left: jq_window.width()-me.width()},
+            /* move down */ {top: jq_window.height()-me.height()},
+            /* move left */ {left: 0}
+        ];
+        console.log(jq_window.height());
+        var i = distances.indexOf(Math.min.apply(Math, distances));
+        cm.animate(targets[i], 500);
+    }
 });
 
-cm.on('hover', function(event, ui) {
-
+cm.on('mouseenter', function(event, ui) {
+    $(this).stop();
 });
 
 sticky.on('click', function(event, ui) {
