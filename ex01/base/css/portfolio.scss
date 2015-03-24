@@ -4,15 +4,19 @@
 
   
   .portfolio-main-col {
+    display: -webkit-flex; 
+    -webkit-flex-direction: row; 
+    -webkit-justify-content: space-between; 
+    -webkit-flex-wrap: wrap;
+
     margin: -20px 0px 0px -20px;
 
     li {
-      float: left;
-
       width: calc(25% - 20px);
       margin: 20px 0px 0px 20px;
 
       .portfolio-item {
+        flex: 1;
         max-width: $bg-image-width / 4 - 25px;
         height: $bg-image-height / 2;
         margin: auto;

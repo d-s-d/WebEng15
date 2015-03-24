@@ -138,7 +138,10 @@ button[type=button] {
 }
 
 .main-row {
-  float: left;
+  display: -webkit-flex; 
+  -webkit-flex-direction: row; 
+  -webkit-justify-content: flex-start; 
+  -webkit-flex-wrap: wrap;
 
   padding: 20px;
   width: calc(100% - 80px);
@@ -177,9 +180,11 @@ button[type=button] {
 }
 
 .footer-row {
-  float:left;
+  display: -webkit-flex; 
+  -webkit-flex-direction: row; 
+  -webkit-justify-content: space-between; 
+  -webkit-flex-wrap: wrap;
 
-  width: calc(100% - 80px);
   border: solid $tab-bg-color;
   border-width: 10px 20px 20px 20px;
   padding: 20px;
@@ -189,8 +194,7 @@ button[type=button] {
 
   .col-3 {
     float: left;
-
-    width:23%;
+    flex: 1;
     padding: 1%;
     display:inline-block;
 
@@ -240,9 +244,7 @@ button[type=button] {
   }
 
   .footer-row {
-    .col-3 {
-      width: 100%;
-    }
+    -webkit-flex-direction: column; 
   }
 }
 

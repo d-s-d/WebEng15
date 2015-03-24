@@ -5,11 +5,14 @@
 
 .blog-list {
   min-height: $bg-image-height - 40px;
-  margin: -20px 0px 0px -20px;
+  margin: -20px 0px 0px -20px;  
+
+  display: -webkit-flex; 
+  -webkit-flex-direction: row; 
+  -webkit-justify-content: space-between; 
+  -webkit-flex-wrap: wrap;
 
   li {
-    float: left;
-
     width: calc(50% - 40px);
     min-height: $bg-image-height/2 - 50px;
     display: inline-block;
