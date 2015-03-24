@@ -79,3 +79,11 @@ sticky.on('click', function(event, ui) {
     var path = STICKY_PATH + (sticked ? 'off' : 'on') + '.png';
     $(this).attr('src', path);
 });
+
+$(window).on('resize', function(event, ui)
+{
+    if(!$('img.menu').data('collapsed') && $(this).width() <= 720)
+    {
+        collapse.dblclick()  
+    }
+});
