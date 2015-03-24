@@ -33,11 +33,14 @@ cm.on('mouseleave', function(event, ui) {
         var jq_window = $(window);
         if (!sticked)
         {
-            var distances = [offset.top, jq_window.width() - offset.left, jq_window.height() - offset.top, offset.left];
+            var distances = [offset.top, 
+                             jq_window.width() - offset.left - me.width(), 
+                             jq_window.height() - offset.top - me.height(), 
+                             offset.left];
             var targets = [
                 /* move up */ {top: 0},
-                /* move right */ {left: jq_window.width() - me.width()},
-                /* move down */ {top: jq_window.height() - me.height()},
+                /* move right */ {left: jq_window.width() - me.outerWidth()},
+                /* move down */ {top: jq_window.height() - me.outerHeight()},
                 /* move left */ {left: 0}
             ];
             console.log(jq_window.height());
