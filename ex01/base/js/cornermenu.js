@@ -49,7 +49,7 @@ cm.on('mouseenter', function(event, ui) {
     $(this).stop();
 });
 
-collapse.on('click', function(event, ui) {
+collapse.on('dblclick', function(event, ui) {
     var collapsed = !$(this).data('collapsed');
     $(this).data('collapsed', collapsed);
     if( collapsed )
