@@ -8,7 +8,9 @@ var collapse = $('img.menu');
 
 sticky.data('sticked', false);
 collapse.data('collapsed', false);
-var originalSize = {width: cm.css('width'), height: cm.css('height')};
+var originalSize = 
+    {width: cm.css('width'), height: cm.css('height'),
+     padding: cm.css('padding')};
 
 const STICKY_PATH  = 'images/corner_menu/sticky_icon_';
 
@@ -56,7 +58,7 @@ collapse.on('dblclick', function(event, ui) {
     {
         $('.corner-menu > a').hide();
         sticky.hide();
-        cm.animate({width: 35, height:35}, 500);
+        cm.animate({width: 35, height:35, padding:12.5}, 500);
     } else {
         cm.animate(originalSize, 500, function()
         {
