@@ -40,13 +40,13 @@ cm.on('mouseleave', function(event, ui) {
             ];
             console.log(jq_window.height());
             var i = distances.indexOf(Math.min.apply(Math, distances));
-            cm.animate(targets[i], 500);
+            cm.animate(targets[i], {duration: 500, queue: "snapToBorder"}).dequeue("snapToBorder");
         }
     }
 });
 
 cm.on('mouseenter', function(event, ui) {
-    $(this).stop();
+    $(this).stop("snapToBorder", true);
 });
 
 collapse.on('click', function(event, ui) {
