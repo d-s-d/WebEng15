@@ -138,7 +138,10 @@ button[type=button] {
 }
 
 .main-row {
-  float: left;
+  display: -webkit-flex; 
+  -webkit-flex-direction: row; 
+  -webkit-justify-content: flex-start; 
+  -webkit-flex-wrap: wrap;
 
   padding: 20px;
   width: calc(100% - 80px);
