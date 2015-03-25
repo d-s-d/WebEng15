@@ -7,9 +7,9 @@
   background-color: white;
   opacity: 0.2;
   z-index: $container-z-index + 1;
-  -webkit-border-radius: 20px;
-     -moz-border-radius: 20px;
-          border-radius: 20px;       
+  -webkit-border-radius: 30px;
+     -moz-border-radius: 30px;
+          border-radius: 30px;       
           
   a > img:hover {
 	-webkit-animation-name: shake;

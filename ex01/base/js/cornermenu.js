@@ -8,7 +8,9 @@ var collapse = $('img.menu');
 
 sticky.data('sticked', false);
 collapse.data('collapsed', false);
-var originalSize = {width: cm.css('width'), height: cm.css('height')};
+var originalSize = 
+    {width: cm.css('width'), height: cm.css('height'),
+     padding: cm.css('padding')};
 
 const STICKY_PATH  = 'images/corner_menu/sticky_icon_';
 
@@ -31,11 +33,14 @@ cm.on('mouseleave', function(event, ui) {
         var jq_window = $(window);
         if (!sticked)
         {
-            var distances = [offset.top, jq_window.width() - offset.left, jq_window.height() - offset.top, offset.left];
+            var distances = [offset.top, 
+                             jq_window.width() - offset.left - me.width(), 
+                             jq_window.height() - offset.top - me.height(), 
+                             offset.left];
             var targets = [
                 /* move up */ {top: 0},
-                /* move right */ {left: jq_window.width() - me.width()},
-                /* move down */ {top: jq_window.height() - me.height()},
+                /* move right */ {left: jq_window.width() - me.outerWidth()},
+                /* move down */ {top: jq_window.height() - me.outerHeight()},
                 /* move left */ {left: 0}
             ];
             console.log(jq_window.height());
@@ -49,14 +54,14 @@ cm.on('mouseenter', function(event, ui) {
     $(this).stop("snapToBorder", true);
 });
 
-collapse.on('click', function(event, ui) {
+collapse.on('dblclick', function(event, ui) {
     var collapsed = !$(this).data('collapsed');
     $(this).data('collapsed', collapsed);
     if( collapsed )
     {
         $('.corner-menu > a').hide();
         sticky.hide();
-        cm.animate({width: 35, height:35}, 500);
+        cm.animate({width: 35, height:35, padding:12.5}, 500);
     } else {
         cm.animate(originalSize, 500, function()
         {
@@ -73,4 +78,12 @@ sticky.on('click', function(event, ui) {
     $(this).data('sticked', sticked);
     var path = STICKY_PATH + (sticked ? 'off' : 'on') + '.png';
     $(this).attr('src', path);
+});
+
+$(window).on('resize', function(event, ui)
+{
+    if(!$('img.menu').data('collapsed') && $(this).width() <= 720)
+    {
+        collapse.dblclick()  
+    }
 });
