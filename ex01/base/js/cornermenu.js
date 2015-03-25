@@ -29,7 +29,7 @@ cm.on('mouseleave', function(event, ui) {
     {
         var sticked = sticky.data('sticked');
         var me = $(this);
-        var offset = me.offset();
+        var offset = me.position();
         var jq_window = $(window);
         if (!sticked)
         {
