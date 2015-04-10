@@ -117,8 +117,8 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'http://n.ethz.ch/~stefand/WENG15/ex03/', 'yes'),
-(2, 'home', 'http://n.ethz.ch/~stefand/WENG15/ex03/', 'yes'),
+(1, 'siteurl', 'http://localhost/larajade/', 'yes'),
+(2, 'home', 'http://localhost/larajade/', 'yes'),
 (3, 'blogname', 'Lara Jade', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '0', 'yes'),

@@ -42,3 +42,5 @@ crashlytics-build.properties
 
 # Vim shit
 *.swp
+
+base*.zip
