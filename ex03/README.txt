@@ -1,3 +1,28 @@
+STEFAN's Readme:
+
+1.) Install XAMPP and run mysql
+2.) Create database
+
+$ mysql -u root 
+> create user larajade@localhost;
+> create database larajade;
+> grant all privileges on larajade.* to larajade@localhost;
+
+$ mysql -u larajade larajade < we2015.adjusted.sql
+
+3.) Create symlink to repo htdocs:
+
+go to the htdocs directory of your xampp installation and
+
+$ ln -s /path/to/repo/ex03/htdocs larajade
+
+IMPORTANT: make sure that directories on /path/to/repo are at least READABLE by the webserver.
+
+The new website should now be accessible through http://localhost/larajade
+
+
+The other guys' Readme:
+
 This WordPress database assumes the website is located in the folder we2015/ and should be accessed from the relative URL: /we2015
 It also assumes your database is called we2015
 
