@@ -24,7 +24,11 @@
 					<strong>About Me</strong>
 					<br>
 					<br>
-					Lara is a freelance web designer with satisfied clients worldwide. Lara has been designing websites professionally for over eight years, and... <strong>More</strong>
+<?php
+	$intro_text = get_option('introduction_text');
+	echo wp_trim_words($intro_text, 20, ' &hellip; <a style="text-decoration:none" href="'.get_home_url().'"><strong>More</strong></a>');
+?>
+					<!-- Lara is a freelance web designer with satisfied clients worldwide. Lara has been designing websites professionally for over eight years, and... <strong>More</strong> -->
 					<br>
 					<br>
 					<strong>Follow me:</strong>
