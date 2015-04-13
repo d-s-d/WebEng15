@@ -5,10 +5,13 @@
 				<div class="container" style="background-image: url('<?php echoPicture($stylesheet_dir,'./images/bg2.png');?> ');background-size: 100%;background-repeat: no-repeat;background-color: #040205; " role="main">
 				<ul class="list">
 <?php
-		$query = new WP_query('postcount=4');
-		if($query->have_posts()):
-			while($query->have_posts()):
-				$query->the_post();
+		global $wp_query;
+		$wp_query_temp = $wp_query;
+
+		$wp_query = new WP_query('posts_per_page=4&paged='.get_query_var('paged'));
+		if(have_posts()):
+			while(have_posts()):
+				the_post();
 ?>
             <li class="blog_list__item">
 							<figure class="blog_list__item__inner">
@@ -22,10 +25,12 @@
 <?php
 			endwhile;
 	endif;
-	wp_reset_postdata();
 ?>
 					</ul>
+				<div><p><?php posts_nav_link(); ?></p></div>
 				</div>
 <?php 
+	$wp_query = $wp_query_tmp;
+	wp_reset_postdata();
     get_footer();
 ?>
