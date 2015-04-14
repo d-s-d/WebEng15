@@ -107,46 +107,63 @@ $args = array(
 endif;
 
 function add_portfolio_post_type_metabox() {
-  add_meta_box( 'person_metabox', 'Person Data', 'person_metabox', 'portfolio', 'normal' );
+  add_meta_box( 'portfolio_metabox', 'Portfolio Data', 'portfolio_metabox', 'portfolio', 'normal' );
 }
-function person_metabox() {
+function portfolio_metabox() {
   global $post;
   $custom = get_post_custom($post->ID);
-  $pname = $custom['person_pname'][0];
-  $office = $custom['person_office'][0];
-  $email = $custom['person_email'][0]; ?>
-<div class="person">
-<p> <label>Name<br> <input type="text" name="pname" size="50"
-        value="<?php echo $pname; ?>"> </label>
-    </p>
-    <p> <label>Office<br> <input type="text" name="office" size="50"
-        value="<?php echo $office; ?>"> </label>
-    </p>
-    <p> <label>Email<br> <input type="text" name="email" size="50"
-value ="<?php echo $email; ?>"> </label> </p>
-  </div>
-<?php }
+  $pname = $custom['portfolio_pname'][0];
+  $descr = $custom['portfolio_descr'][0]; 
+  $year = $custom['portfolio_year'][0]; 
+  $url = $custom['portfolio_url'][0];
 
-function person_post_save_meta( $post_id, $post ) {
+    ?>
+		<div class="portfolio">
+			<p>
+				<label>Description<br> 
+					<input type="text" name="descr" size="50" value="<?php echo $descr; ?>"> 
+		    	</label>
+		    </p>
+			<p>
+				<label>Year<br> 
+					<input type="text" name="year" size="50" value="<?php echo $year; ?>"> 
+		    	</label>
+		    </p>
+			<p>
+				<label>URL<br> 
+					<input type="text" name="url" size="50" value="<?php echo $url; ?>"> 
+		    	</label>
+		    </p>
+		</div>	
+	<?php 
+}
+
+function portfolio_post_save_meta( $post_id, $post ) {
   // is the user allowed to edit the post or page?
-  if( ! current_user_can( 'edit_post', $post->ID )){
+  if( ! current_user_can( 'edit_post', $post->ID ))
+  {
     return $post->ID;
   }
-$person_post_meta['person_pname'] = $_POST['pname']; $person_post_meta['person_office'] = $_POST['office']; $person_post_meta['person_email'] = $_POST['email'];
+
+  $portfolio_post_meta['portfolio_descr'] = $_POST['descr']; 
+  $portfolio_post_meta['portfolio_year'] = $_POST['year'];
+  $portfolio_post_meta['portfolio_url'] = $_POST['url'];
+
   // add values as custom fields
-  foreach( $person_post_meta as $key => $value ) {
+  foreach( $portfolio_post_meta as $key => $value ) {
     if( get_post_meta( $post->ID, $key, FALSE ) ) {
       // if the custom field already has a value
-update_post_meta($post->ID, $key, $value); } else {
-      // if the custom field doesn't have a value
-      add_post_meta( $post->ID, $key, $value );
+		update_post_meta($post->ID, $key, $value); } 
+	else {
+	    // if the custom field doesn't have a value
+        add_post_meta( $post->ID, $key, $value );
     }
     if( !$value ) {
       // delete if blank
       delete_post_meta( $post->ID, $key );
 } }
 }
-add_action( 'save_post', 'person_post_save_meta', 1, 2 );
+add_action( 'save_post', 'portfolio_post_save_meta', 1, 2 );
 // save the custom fields
 
 ?>
