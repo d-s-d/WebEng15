@@ -76,28 +76,28 @@ if( ! function_exists( 'create_portfolio_post_type' ) ):
 $labels = array(
 'name' => __( 'Portfolio' ),
 'singular_name' => __( 'Portfolio' ),
-'menu_name' => __( 'Persons' ),
+'menu_name' => __( 'Portfolios' ),
 'add_new' => __( 'Add portfolio' ),
 'all_items' => __( 'All portfolio' ),
 'add_new_item' => __( 'Add portfolio' ),
 'edit_item' => __( 'Edit portfolio' ),
 'new_item' => __( 'New portfolio' ),
 'view_item' => __( 'View portfolio' ),
-'search_items' => __( 'Search persons' ),
-'not_found' => __( 'No persons found' ), 'not_found_in_trash' => __( 'No persons found in trash' ), 'parent_item_colon' => __( 'Parent person' )
+'search_items' => __( 'Search portfolios' ),
+'not_found' => __( 'No portfolios found' ), 'not_found_in_trash' => __( 'No portfolios found in trash' ), 'parent_item_colon' => __( 'Parent portfolio' )
 //'menu_name' => default to 'name' 
 );
 
 $args = array(
 'labels' => $labels,
 'public' => true, 'publicly_queryable' => true, 'show_in_nav_menus' => true, 'query_var' => true, 'rewrite' => true, 'capability_type' => 'post', 'hierarchical' => false, 'supports' => array(
-//'title',
+'title',
 'thumbnail', //'editor', //'author', //'excerpt', //'trackbacks', //'custom-fields', //'comments', //'revisions', //'page-attributes', //'post-formats',
 ), 'menu_position' => 5,
 'register_meta_box_cb' => 'add_person_post_type_metabox' );
 
-  register_post_type( 'person', $args );
-  register_taxonomy( 'custom_category', 'person',
+  register_post_type( 'portfolio', $args );
+  register_taxonomy( 'custom_category', 'portfolio',
        array(
           'hierarchical' => true,
           'label' => 'role'
