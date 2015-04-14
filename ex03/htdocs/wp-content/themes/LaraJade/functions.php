@@ -94,17 +94,59 @@ $args = array(
 'title',
 'thumbnail', //'editor', //'author', //'excerpt', //'trackbacks', //'custom-fields', //'comments', //'revisions', //'page-attributes', //'post-formats',
 ), 'menu_position' => 5,
-'register_meta_box_cb' => 'add_person_post_type_metabox' );
+'register_meta_box_cb' => 'add_portfolio_post_type_metabox' );
 
   register_post_type( 'portfolio', $args );
   register_taxonomy( 'custom_category', 'portfolio',
        array(
-          'hierarchical' => true,
-          'label' => 'role'
+          // 'hierarchical' => true,
+          // 'label' => 'role'
        )
 ); }
   add_action( 'init', 'create_portfolio_post_type' );
 endif;
 
+function add_portfolio_post_type_metabox() {
+  add_meta_box( 'person_metabox', 'Person Data', 'person_metabox', 'portfolio', 'normal' );
+}
+function person_metabox() {
+  global $post;
+  $custom = get_post_custom($post->ID);
+  $pname = $custom['person_pname'][0];
+  $office = $custom['person_office'][0];
+  $email = $custom['person_email'][0]; ?>
+<div class="person">
+<p> <label>Name<br> <input type="text" name="pname" size="50"
+        value="<?php echo $pname; ?>"> </label>
+    </p>
+    <p> <label>Office<br> <input type="text" name="office" size="50"
+        value="<?php echo $office; ?>"> </label>
+    </p>
+    <p> <label>Email<br> <input type="text" name="email" size="50"
+value ="<?php echo $email; ?>"> </label> </p>
+  </div>
+<?php }
+
+function person_post_save_meta( $post_id, $post ) {
+  // is the user allowed to edit the post or page?
+  if( ! current_user_can( 'edit_post', $post->ID )){
+    return $post->ID;
+  }
+$person_post_meta['person_pname'] = $_POST['pname']; $person_post_meta['person_office'] = $_POST['office']; $person_post_meta['person_email'] = $_POST['email'];
+  // add values as custom fields
+  foreach( $person_post_meta as $key => $value ) {
+    if( get_post_meta( $post->ID, $key, FALSE ) ) {
+      // if the custom field already has a value
+update_post_meta($post->ID, $key, $value); } else {
+      // if the custom field doesn't have a value
+      add_post_meta( $post->ID, $key, $value );
+    }
+    if( !$value ) {
+      // delete if blank
+      delete_post_meta( $post->ID, $key );
+} }
+}
+add_action( 'save_post', 'person_post_save_meta', 1, 2 );
+// save the custom fields
 
 ?>
