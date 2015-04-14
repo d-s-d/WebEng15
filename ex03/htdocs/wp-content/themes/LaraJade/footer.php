@@ -59,16 +59,30 @@
 ?><!--
 					Over the previous year, the Polymer team has spent a lot of time teaching developers how to create their own elements. This has lead to a rapidly growing ecosystem, buoyed in large... <strong>More</strong> -->
 				</div>
+
 				<div class="flex-item">
 					<strong>Last Project</strong>
 					<br>
-					</br>
-					Freelance WebSite
-					<br>
-					<br>
-					<img width="80%" src="<?php echoPicture($stylesheet_dir,'images/portfolio/p1.jpg');?>" >
-				</div>
+					<?php
+						global $wp_query;
+						$wp_query_temp = $wp_query;
 
+						custom_excerpt_length(20);
+						$wp_query = new WP_query(array('post_type' => 'portfolio', 'post_count' => '1', 'orderby' => 'date', 'order' => 'desc' ));
+						?>
+					</br>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					<br>
+					<br>
+					<!-- <img width="80%" src="<?php echoPicture($stylesheet_dir,'images/portfolio/p1.jpg');?>" > -->
+					<!-- TODO fix size.. -->
+					<?php if(has_post_thumbnail() ) { the_post_thumbnail(); } ?>
+					<?php	
+							// $post = $tmp_post;
+						$wp_query = $wp_query_temp;	
+						wp_reset_postdata();
+					?>
+				</div>
 				<!-- </div> -->
 			</div>
 		</div>
