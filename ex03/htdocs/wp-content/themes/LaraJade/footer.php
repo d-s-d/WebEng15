@@ -44,7 +44,20 @@
 					<strong>My last post</strong>
 					<br>
 					<br>
-					Over the previous year, the Polymer team has spent a lot of time teaching developers how to create their own elements. This has lead to a rapidly growing ecosystem, buoyed in large... <strong>More</strong>
+<?php
+	global $wp_query;
+	$wp_query_temp = $wp_query;
+
+	custom_excerpt_length(20);
+	$wp_query = new WP_query(array('post_count' => '1', 'orderby' => 'date', 'order' => 'desc' ));
+	the_post();
+	the_excerpt(); ?><a href="<?php the_permalink(); ?>"><strong>More</strong></a>
+<?php	
+		// $post = $tmp_post;
+	$wp_query = $wp_query_temp;	
+	wp_reset_postdata();
+?><!--
+					Over the previous year, the Polymer team has spent a lot of time teaching developers how to create their own elements. This has lead to a rapidly growing ecosystem, buoyed in large... <strong>More</strong> -->
 				</div>
 				<div class="flex-item">
 					<strong>Last Project</strong>

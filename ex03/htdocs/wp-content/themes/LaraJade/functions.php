@@ -50,4 +50,24 @@ I have sucessfully been a freelance web designer now for a while and it has give
 	<input name="intro_text_post" type="hidden" value="1" />
 <?php
  }
+
+global $EXCERPT_LENGTH;
+
+$EXCERPT_LENGTH = 50;
+
+function custom_excerpt_length( $len ) {
+	global $EXCERPT_LENGTH;
+	$EXCERPT_LENGTH = $len;
+}
+
+// The following is a perfect example of how UGLY wordpress is designed.
+function filter_excerpt_length() {
+	global $EXCERPT_LENGTH;
+	$tmp = $EXCERPT_LENGTH;
+	$EXCERPT_LENGTH = 50;
+	return $tmp;
+}
+
+add_filter( 'excerpt_length', 'filter_excerpt_length', 999 );
+
 ?>
