@@ -21,7 +21,7 @@
 				<figure class="list__item__inner">
 
 					<figcaption>
-									<?php if(has_post_thumbnail() ) {the_post_thumbnail(); } ?>
+						<?php if(has_post_thumbnail() ) {the_post_thumbnail(); } ?>
 						<a style="text-decoration:none;" href="<?php the_permalink(); ?>"><strong><?php the_title(); ?></strong></a>
 						<br>
 						 <?php echo $year; ?><br>
