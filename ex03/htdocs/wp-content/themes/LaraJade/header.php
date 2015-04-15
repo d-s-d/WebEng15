@@ -12,6 +12,25 @@
 		<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
         <?php wp_head();?>
 		<link rel="stylesheet" href="<?php echo $stylesheet_url; ?>">
+		<style>
+			body
+			{
+				background-color: <? echo get_option('bgcolor', '#414141'); ?> ;
+			}
+			.blog_list__item .blog_list__item__inner
+			{
+				color: <?php echo get_option('articletext', '#474d51'); ?> ;
+			}
+			.container,
+			.container a
+			{
+				color: <?php echo get_option('articletext', '#cfd7db'); ?>;
+			}
+			#header
+			{
+				color: <?php echo get_option("headlines", '#FFFFFF'); ?>;
+			}
+		</style>
 	</head>
 	<script>
 		$(document).ready(function() {

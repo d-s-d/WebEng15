@@ -6,16 +6,10 @@
 					<strong>ADDRESS</strong>
 					<br>
 					<br>
-					New Chrichton Cottage
-					<br>
-					Arradoul, Buckie
-					<br>
-					AB43 5AP
-					<br>
-					Scotland UK
+					<?php echo str_replace(',',"<br>", get_option('contact_address')); ?>
 					<br>
 					<br>
-					+44 (0) 1234 567891
+					<?php echo get_option('contact_fax'); ?>
 					<br>
 					<br>
 					<img width="35%" src="<?php echoPicture($stylesheet_dir,'images/qcode.png');?> " align="left">

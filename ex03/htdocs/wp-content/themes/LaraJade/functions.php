@@ -202,6 +202,7 @@ add_action('admin_menu', 'setup_theme_admin_menu');
 
 
 function larajade_settings_page() { 
+	error_reporting(E_ERROR | E_PARSE);
 	wp_enqueue_style( 'wp-color-picker' );
 	wp_enqueue_script(
             'iris',

@@ -55,12 +55,16 @@
 
 					<div class="ctransbox">
 						<div class="full">
-							<strong style="float:left;">Email</strong><strong style="float:right;">larajade@larajade.co.uk</strong>
+							<strong style="float:left;">Email</strong><strong style="float:right;">
+								<?php echo get_option('contact_email'); ?></strong>
 							<br>
-							<strong style="float:left;">Fax</strong><strong style="float:right;"> +44 (0) 1234 567891</strong>
+							<strong style="float:left;">Fax</strong><strong style="float:right;">
+								<?php echo get_option('contact_fax'); ?>
+							</strong>
 							<br>
-							<strong style="float:left;">Address: </strong><strong style="float:right;"> New Chrichton Cottage, Arradoul, Buckie, AB43 AP
-							Scotland UK</strong>
+							<strong style="float:left;">Address: </strong><strong style="float:right;">
+								<?php echo get_option('contact_address'); ?>
+							</strong>
 						</div>
 					</div>
 
