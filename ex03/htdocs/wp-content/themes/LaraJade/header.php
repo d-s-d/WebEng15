@@ -12,6 +12,7 @@
 		<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
         <?php wp_head();?>
 		<link rel="stylesheet" href="<?php echo $stylesheet_url; ?>">
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/start/jquery-ui.css">
 	</head>
 	<script>
 		$(document).ready(function() {
