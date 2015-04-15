@@ -2,6 +2,21 @@
     global $stylesheet_dir, $stylesheet_url;
 
     get_header();
+
+    if (isset($_POST["submit"])) {
+        $to = get_bloginfo('admin_email');
+	$from = $_POST["firstname"] ." ". $_POST["lastname"];
+	$subject = "sent from contact form";
+	$message = $_POST["message"];
+	echo $subject ." ". $message ." ". $from . "<br>";
+        if (mail($to, $subject, $message, $from)) {
+            echo "sent: " . $to;
+        }
+	else {
+	    
+            echo "failed: " . $to;
+        }
+    }
 ?>
 
 				<div class="container" style="background-image: url('<?php echoPicture($stylesheet_dir,'images/bg4.png');?>');background-size: 100%;background-repeat: no-repeat;background-color: #040205; min-height: 500px;" role="main">
@@ -15,7 +30,7 @@
 					<br><br><br><br><br><br><br><br><br><br><br>
 
 					<div style="float:left;overflow: hidden;vertical-align: bottom;">
-						<form>
+						<form action="" method="post">
 							<p style="float:left;">
 								First name:
 							</p>
@@ -31,7 +46,7 @@
 							<br>
 							<textarea type="text" name="message" rows="7" cols="65" >	</textarea>
 							<br>
-							<button type="button" style="background-color:#fafafa; color:#000;padding-left:5px;padding-right:5px;">
+							<button name="submit" type="submit" style="background-color:#fafafa; color:#000;padding-left:5px;padding-right:5px;">
 								Submit
 							</button>
 						</form>
