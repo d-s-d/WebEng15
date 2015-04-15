@@ -43,14 +43,15 @@ wp_reset_postdata();
 	if( current_user_can('edit_post', $post_id) ): ?>
 
 		<script type="text/javascript">
-		 var can_edit = true;
+		var post_id = <?php echo $post_id; ?>;
 		</script>
 <br />
 <br />
-	<button class="btn" id="btn_edit">edit</button>
-	<button class="btn" id="btn_bold"><strong>B</strong></button>	
-	<button class="btn" id="btn_italic"><i>i</i></button>	
-	<button class="btn" id="btn_underline"><u>u</u></button>	
+	<button class="btn" id="btn_edit">edit</button>&nbsp;
+	<button class="btn" id="btn_bold"><strong>B</strong></button>	&nbsp;
+	<button class="btn" id="btn_italic"><i>i</i></button>	&nbsp;
+	<button class="btn" id="btn_underline"><u>u</u></button>	&nbsp;
+	<button class="btn" id="btn_save">save</button>	&nbsp;
 <?php
 	endif;
 ?>
@@ -73,20 +74,46 @@ wp_reset_postdata();
 			f(btn, _cmd);
 		}
 	}
+
+	function editPost() {
+		for_each_edit_btn( function(btn) { btn.show(); })
+		$("#post_content").attr('contentEditable', 'true');
+		$("#btn_save").show();
+	}
+
+	function savePost() {
+		for_each_edit_btn( function(btn) { btn.hide(); } );
+		$("#btn_save").hide();
+		$("#post_content").attr('contentEditable', 'false');
+		// send post to server
+		$.ajax({
+			type: 'POST',
+				url: '/larajade/wp-admin/admin-ajax.php',
+				cache: false,
+				data: {
+					action: 'set_post_content',
+					post_id: post_id,
+					content: $("#post_content").html()
+				},
+				success: function(data) {
+					console.log(data);
+				}
+		});
+	}
+
 	$().ready( function() {
 		$("#btn_edit").hide();
+		$("#btn_save").hide();
 		for_each_edit_btn( function(btn) { btn.hide(); } );
 		for_each_edit_btn( function(btn, _cmd) {	
 			btn.click( (function(cmd) { 
 				return function() { console.log(cmd); document.execCommand(cmd, false, null);}; 
 			})(_cmd) ); 
 		});
-		if( can_edit ) {
+		if( post_id ) {
 			$("#btn_edit").show();
-			$("#btn_edit").click( function() {
-				for_each_edit_btn( function(btn) { btn.show(); })
-					$("#post_content").attr('contentEditable', 'true');
-			});
+			$("#btn_edit").click( editPost );
+			$("#btn_save").click( savePost );
 		}
 	});
 	</script>
