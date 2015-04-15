@@ -1,4 +1,16 @@
 <?php 
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		require_once( ABSPATH . 'wp-admin/includes/media.php' );
+		if($_SERVER['REQUEST_METHOD'] === 'POST' )
+		{
+			$attachement = media_handle_upload( 'image_file',  $_POST['post_id']);
+			
+			if( is_wp_error( $attachement ) ) {
+				echo $attachement->get_error_message();
+			}
+			set_post_thumbnail($_POST['post_id'], $attachement );
+		}
     global $stylesheet_dir, $stylesheet_url;
     get_header();
 ?>
@@ -65,6 +77,7 @@ wp_reset_postdata();
 					</ul>
 				</div>
 	<script type="text/javascript">
+	var editing = false;
 	function for_each_edit_btn( f ) {
 				var commands = ['underline', 'bold', 'italic'];
 		for( var c in commands ) 
@@ -76,12 +89,14 @@ wp_reset_postdata();
 	}
 
 	function editPost() {
+		editing = true;
 		for_each_edit_btn( function(btn) { btn.show(); })
 		$("#post_content").attr('contentEditable', 'true');
 		$("#btn_save").show();
 	}
 
 	function savePost() {
+		editing = false;
 		for_each_edit_btn( function(btn) { btn.hide(); } );
 		$("#btn_save").hide();
 		$("#post_content").attr('contentEditable', 'false');
@@ -102,6 +117,27 @@ wp_reset_postdata();
 	}
 
 	$().ready( function() {
+		$("figcaption > img").click( function() {
+			savePost();
+			$("#new-image-dialog").dialog('open');
+		} );
+
+		$("#new-image-dialog").dialog({
+			autoOpen: false,
+			modal: true,
+			draggable: true,
+			resizable: false,
+			position: ['center', 'top'],
+			show: 'blind',
+			hide: 'blind',
+			width: 400,
+			dialogClass: 'ui-dialog-osx',
+			buttons: {
+					"Cancel": function() {
+							$(this).dialog("close");
+					}
+			}
+		});
 		$("#btn_edit").hide();
 		$("#btn_save").hide();
 		for_each_edit_btn( function(btn) { btn.hide(); } );
@@ -117,6 +153,18 @@ wp_reset_postdata();
 		}
 	});
 	</script>
+<div id="new-image-dialog" title="Choose New Image">
+    <span class="ui-state-default"><span class="ui-icon ui-icon-info" style="float:left; margin:0 7px 0 0;"></span></span>
+		<div style="margin-left: 23px;">
+		<form action="?p=<?php echo $post_id; ?>" method="post" enctype="multipart/form-data">
+			<input type="file" name="image_file" required />
+			<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+			<input type="submit" value="Upload" />
+		</form>
+		<p>
+    </p></div>
+</div>
+
 <?php 
 wp_reset_postdata();
 get_footer();

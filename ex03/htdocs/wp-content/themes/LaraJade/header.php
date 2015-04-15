@@ -31,6 +31,7 @@
 				color: <?php echo get_option("headlines", '#FFFFFF'); ?>;
 			}
 		</style>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/start/jquery-ui.css">
 	</head>
 	<script>
 		$(document).ready(function() {
