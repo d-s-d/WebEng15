@@ -186,4 +186,152 @@ function set_post_content() {
 	wp_die();
 }
 
+// theme options
+function setup_theme_admin_menu() {
+	add_menu_page(
+		'Larajade Theme Settings',
+		'Larajade Settings',
+		'manage_options',
+		'larajade_settings',
+		'larajade_settings_page'
+	);
+}
+
+add_action('admin_menu', 'setup_theme_admin_menu');
+
+
+
+function larajade_settings_page() { 
+	wp_enqueue_style( 'wp-color-picker' );
+	wp_enqueue_script(
+            'iris',
+            admin_url( 'js/iris.min.js' ),
+            array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
+            false,
+            1
+        );
+
+	wp_enqueue_media();
+	wp_enqueue_script( 'custom-header' );
+	// Add to the top of our data-update-link page
+	if (isset($_REQUEST['file'])) { 
+	    check_admin_referer("gallery_options");
+
+	    $options = absint($_REQUEST['file']);
+	    update_option('gallery_options', $options);
+	}
+	?>
+		<script> jQuery(document).ready(function($){
+				    $('.color-picker').iris();
+				 });		
+		</script>
+		<style type="text/css">
+			<?php include('settings.css'); ?>
+		</style>
+		<div class="wrap" >
+			<?php screen_icon('themes'); ?> <h2>Larajade Settings</h2>
+
+			<?php
+				$modal_update_href = esc_url( add_query_arg( array(
+				    'page' => 'larajade_settings',
+				    '_wpnonce' => wp_create_nonce('gallery_options'),
+				), admin_url('upload.php') ) );
+			?>
+				         
+			<p>
+			<?php 
+				$img_atts = wp_get_attachment_image_src(get_option('gallery_options'));
+				$img_src = $img_atts[0];
+			?>
+				<?php if($img_src) { ?> <img src= <?php echo $img_src; ?> > <?php } ?>
+				<br>
+				<a id="choose-from-library-link" href="#"
+				    data-update-link="<?php echo esc_attr( $modal_update_href ); ?>"
+				    data-choose="<?php esc_attr_e( 'Choose a Default Image' ); ?>"
+				    data-update="<?php esc_attr_e( 'Set as default image' ); ?>"><?php _e( 'Set default image' ); ?>
+				</a>
+			</p>
+
+
+			<?php if(!isset($_POST["update_settings"])) { ?>
+				<form method="POST" action="">
+					<input type="hidden" name="update_settings" value="Y" />
+					
+					<table class="form-table">
+						<tr>
+							<th><label for="lecture">E-Mail:</label></th> 
+							<td>
+								<input type="text" name="contact_email"
+									value="<?php print get_option("contact_email"); ?>" size ="25" />
+							</td> 
+						</tr>
+						<tr>
+							<th><label for="lecture">Fax:</label></th> 
+							<td>
+								<input type="text" name="contact_fax"
+									value="<?php print get_option("contact_fax"); ?>" size ="25" />
+							</td> 
+						</tr>
+						<tr>
+							<th><label for="lecture">Contact address:</label></th> 
+							<td>
+								<input type="text" name="contact_address"
+									value="<?php print get_option("contact_address"); ?>" size ="25" />
+							</td> 
+						</tr>
+						
+
+						<tr>
+							<th><label for="lecture">BG-Color:</label></th> 
+							<td>
+								<input type="text" name="bgcolor" id="color" class="color-picker" 
+									value="<?php print get_option("bgcolor"); ?>" />
+							</td> 
+						</tr>
+						<tr>
+							<th><label for="lecture">Headlines:</label></th> 
+							<td>
+								<input type="text" name="headlines" id="color" class="color-picker" 
+									value="<?php print get_option("headlines"); ?>" />
+							</td> 
+						</tr>
+						<tr>
+							<th><label for="lecture">articletext:</label></th> 
+							<td>
+								<input type="text" name="articletext" id="color" class="color-picker" 
+									value="<?php print get_option("articletext"); ?>" />
+							</td> 
+						</tr>
+	
+
+						<!-- specify rest of input fields -->
+						
+					</table>
+
+					<p>
+						<input type="submit" value="Save settings" class="button-primary"/>
+					</p> 
+				</form>
+			<?php } ?>
+		</div> 
+		<?php
+			if (isset($_POST["update_settings"])) {
+				$contact_email = esc_attr($_POST["contact_email"]); 
+				update_option("contact_email", $contact_email); 
+
+				$contact_fax = esc_attr($_POST["contact_fax"]); 
+				update_option("contact_fax", $contact_fax); 
+
+				$contact_address = esc_attr($_POST["contact_address"]); 
+				update_option("contact_address", $contact_address); 
+
+				update_option("bgcolor", esc_attr($_POST["bgcolor"])); 
+				update_option("headlines", esc_attr($_POST["headlines"])); 
+				update_option("articletext", esc_attr($_POST["articletext"])); 
+				?>
+					<div id="message" class="updated">Settings saved</div>
+				<?php 
+			}
+} 
+
 ?>
