@@ -69,6 +69,7 @@
 
 						custom_excerpt_length(20);
 						$wp_query = new WP_query(array('post_type' => 'portfolio', 'post_count' => '1', 'orderby' => 'date', 'order' => 'desc' ));
+						the_post();
 						?>
 					</br>
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
