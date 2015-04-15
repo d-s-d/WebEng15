@@ -178,4 +178,12 @@ function my_connection_types() {
 }
 add_action( 'p2p_init', 'my_connection_types' );
 
+add_action( 'wp_ajax_set_post_content', 'set_post_content' );
+
+function set_post_content() {
+	$args = array( 'ID' => $_POST['post_id'], 'post_content' => $_POST['content'] );
+	wp_update_post( $args );
+	wp_die();
+}
+
 ?>
