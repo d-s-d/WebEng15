@@ -1,10 +1,10 @@
 #!/opt/lampp/bin/php
 <?php
 $input = file_get_contents('php://stdin');
-$filename = '/opt/lampp/mailoutput/mail-' . gmdate('Ymd-Hi-s') . '.txt';
+$filename = '/tmp/mail-' . gmdate('Ymd-Hi-s') . '.txt';
 $retry = 0;
 while(is_file($filename))
 {
-    $filename = '/opt/lampp/mailoutput/mail-' . gmdate('Ymd-Hi-s') . '-' . ++$retry . '.txt';
+    $filename = '/tmp/mail-' . gmdate('Ymd-Hi-s') . '-' . ++$retry . '.txt';
 }
 file_put_contents($filename, $input);
