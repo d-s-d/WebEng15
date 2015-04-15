@@ -166,4 +166,16 @@ function portfolio_post_save_meta( $post_id, $post ) {
 add_action( 'save_post', 'portfolio_post_save_meta', 1, 2 );
 // save the custom fields
 
+
+// post 2 post
+function my_connection_types() {
+    p2p_register_connection_type( array(
+        'name' => 'posts_to_portfolio',
+        'from' => 'post',
+        'to' => 'portfolio',
+        'reciprocal' => true,
+    ) );
+}
+add_action( 'p2p_init', 'my_connection_types' );
+
 ?>

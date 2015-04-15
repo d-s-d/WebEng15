@@ -21,10 +21,33 @@
 									<br>
 									<?php echo $descr; ?><br>
 									<?php echo $year; ?><br>
-									<a href=<?php echo $year; ?>>Go to portfolio website</a><br>
+									<a href=<?php echo $year; ?>>Go to portfolio website</a><br><br>
+<?php
+	// Find connected pages
+	$connected = new WP_Query( array(
+	  'connected_type' => 'posts_to_portfolio',
+	  'connected_items' => get_queried_object(),
+	  'nopaging' => true,
+	) );
+
+	// Display connected pages
+	if ( $connected->have_posts() ) :
+?>
+<h3>Related portfolio posts:</h3>
+<ul>
+<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
+    <li><a style="color:#000000" href="<?php the_permalink(); ?>"><strong><?php the_title(); ?></strong></a></li>
+<?php endwhile; ?>
 								</figcaption>
 							</figure>
 						</li>
+
+<?php 
+	// Prevent weirdness
+	wp_reset_postdata();
+
+	endif;
+?>
 <?php
 	endif;
 ?>
