@@ -150,6 +150,10 @@ figcaption.single > p{
     text-align: justify;
 }
 
+figcaption > img {
+	height:auto;
+}
+
 .container a.blacklink {
     color:black;
     text-decoration: none;
