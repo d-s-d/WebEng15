@@ -155,6 +155,11 @@ figcaption.single > p{
     text-decoration: none;
 }
 
+#footer a {
+	text-decoration: none;
+	color: white;
+}
+
 .textcentered {
     text-align: center;   
 }
