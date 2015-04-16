@@ -563,3 +563,8 @@ button.btn {
 	font-size:1.5em;
 	color: black;
 }
+
+#footer .attachment-post-thumbnail {
+	width:80%;
+	height:auto;
+}
