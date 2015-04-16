@@ -8,13 +8,13 @@
 	$from = $_POST["firstname"] ." ". $_POST["lastname"];
 	$subject = "sent from contact form";
 	$message = $_POST["message"];
-	echo $subject ." ". $message ." ". $from . "<br>";
+	//echo $subject ." ". $message ." ". $from . "<br>";
         if (mail($to, $subject, $message, $from)) {
-            echo "sent: " . $to;
+            //echo "sent: " . $to;
         }
 	else {
 	    
-            echo "failed: " . $to;
+            //echo "failed: " . $to;
         }
     }
 ?>
