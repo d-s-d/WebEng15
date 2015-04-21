@@ -45,7 +45,10 @@
 			 }
 
 		#touch { position: absolute;width: 100%; height:80%;
-				background-color: purple; color: white; text-align: center; }
+/*				background-color: purple; 
+				color: white;*/
+				text-align: center;
+				  }
  /* OK STUDENT */
     .centerimg {
 	  
@@ -78,11 +81,10 @@
 </div>
 <div id="touch" >
 	<img id="galleryImg" class="gallery-mode" src="" style="display:none">
-	<BR><h1>TAP HERE</h1>
-	<div>
-	<!--   USE THIS DIV AS THE TARGET FOR THE TAP HOLD INTERACTION  -->
-	<p id="info"></p>
-	</div>
+	<p id="info">
+		<div id="divInfo"></div>
+	</p>
+	<!-- <BR><h1>TAP HERE</h1> -->
 </div>
 </div>
 
@@ -90,6 +92,7 @@
 
 <script>
 var map = { "img1" : 1, "img2" : 2, "img3" : 3 , "img4" : 4}
+var mapInv = { 1: "img1", 2: "img2", 3: "img3", 4:"img4"}
 var map_info = { "img1" : "ETH Terrasse", "img2" : "ETH Main Building, interior", "img3" : "ETH Main Building", "img4" : "ETH Main Building 2"}
 var currSelected = 0;
 var numberOfImages = $(".gallery_class").length; 
@@ -98,12 +101,14 @@ $("#box").tiltandtap({
     onTiltRight  : selectNext,
     onTiltLeft    : selectPrevious,
     tiltDown  : { onTiltDown: closeGalleryMode, interaction : {type: "press", element: "touch"}},
-    tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}}
+    tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}},
+    tiltDown    : { onTiltDown: tiltUpDown},
+    tiltUp    : { onTiltUp: tiltUpDown}
 });
 
 // $("#box2").tiltandtap({
-// 	onTiltUp: changeColor,
-// 	onTiltDown: changeColor,
+// 	onTiltUp: tiltUpDown,
+// 	onTiltDown: tiltUpDown,
 // });
 
 function changeColor ()
@@ -126,6 +131,7 @@ function select(current)
 	$(".gallery_class").eq(currSelected).addClass("selected");
 
 	updateGallery();
+	updateInfo();
 }
 
 function selectPrevious ()
@@ -165,7 +171,52 @@ function updateGallery()
 	}
 }
 
-// openGalleryMode();
+// tiltUpDown
+var showInfo = false;
+var tiltUDInterval = 750; // ms
+var udTiltsNeeded = 3;
+var ticks = [];
+
+function tiltUpDown()
+{
+	// $("#touch").append(Date.now() +"<br>");
+	ticks.push(Date.now());
+
+	if(ticks.length >= udTiltsNeeded)
+	{
+		var diff = ticks[ticks.length-1] - ticks[ticks.length-udTiltsNeeded];
+		if(diff <= tiltUDInterval)
+		{
+			showInfo = !showInfo;
+			updateInfo();
+			ticks.length = 0;
+		}
+		else
+		{
+			ticks.shift();
+		}
+	}
+}
+
+function updateInfo()
+{
+	if(showInfo)
+	{
+		// show info
+	    // $("#touch").css("background-color", "white");
+	    var info = $("#divInfo");
+	    info.css("display", "inline");
+		info.text("tesr");
+
+	    info.text(map_info[mapInv[currSelected+1]]);
+	}
+	else
+	{
+		// disable info
+	    // $("#touch").css("background-color", "black");
+		$("#divInfo").css("display", "none");
+	}
+}
 
 </script>
 
