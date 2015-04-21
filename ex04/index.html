@@ -43,8 +43,7 @@
 			 	position: absolute;
 			 	z-index: 1;
 			 }
-        
-		
+
 		#touch { position: absolute;width: 100%; height:80%;
 				background-color: purple; color: white; text-align: center; }
  /* OK STUDENT */
@@ -78,6 +77,7 @@
         <div class="wrp"><img id="img4" class="gallery_class notselected" src="img/img4.jpg"  /></div>
 </div>
 <div id="touch" >
+	<img id="galleryImg" class="gallery-mode" src="" style="display:none">
 	<BR><h1>TAP HERE</h1>
 	<div>
 	<!--   USE THIS DIV AS THE TARGET FOR THE TAP HOLD INTERACTION  -->
@@ -101,10 +101,10 @@ $("#box").tiltandtap({
     tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}}
 });
 
-$("#box2").tiltandtap({
-	onTiltUp: changeColor,
-	onTiltDown: changeColor,
-});
+// $("#box2").tiltandtap({
+// 	onTiltUp: changeColor,
+// 	onTiltDown: changeColor,
+// });
 
 function changeColor ()
 {
@@ -124,10 +124,8 @@ function select(current)
 	
 	// select current
 	$(".gallery_class").eq(currSelected).addClass("selected");
-	if(isGalleryModeOn)
-	{
-		$(".gallery_class").eq(currSelected).addClass("gallery-mode");
-	}
+
+	updateGallery();
 }
 
 function selectPrevious ()
@@ -144,13 +142,27 @@ var isGalleryModeOn = false;
 function openGalleryMode()
 {
 	isGalleryModeOn = true;
-	$(".selected").addClass("gallery-mode");
+	updateGallery();
 }
 
 function closeGalleryMode()
 {
 	isGalleryModeOn = false;
-	$(".selected").removeClass("gallery-mode");
+	updateGallery();
+}
+
+function updateGallery()
+{
+	if(isGalleryModeOn)
+	{
+		var src = $(".selected").attr("src");
+		$("#galleryImg").css("display", "inline");
+		$("#galleryImg").attr("src", src);
+	}
+	else
+	{
+		$("#galleryImg").css("display", "none");
+	}
 }
 
 // openGalleryMode();
