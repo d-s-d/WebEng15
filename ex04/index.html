@@ -28,13 +28,25 @@
 			box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
 			 }
 			 .selected {
-			 -webkit-box-shadow: 0px 0px 0px 3px red;
-			-moz-box-shadow: 0px 0px 0px 3px red;
-			box-shadow: 0px 0px 0px 3px red;
+			 	-webkit-box-shadow: 0px 0px 0px 3px red;
+				-moz-box-shadow: 0px 0px 0px 3px red;
+				box-shadow: 0px 0px 0px 3px red;
+			 }
+
+			 .gallery-mode {
+			 	max-width: 600px;
+			 	width: 600px;
+			 	height: 600px;
+			 	left: 50%;
+			 	top: 50%;
+			 	margin: -300px 0 0 -300px;
+			 	position: absolute;
+			 	z-index: 1;
 			 }
         
 		
-		#touch { position: absolute;width: 100%; height:80%;}
+		#touch { position: absolute;width: 100%; height:80%;
+				background-color: purple; color: white; text-align: center; }
  /* OK STUDENT */
     .centerimg {
 	  
@@ -65,8 +77,8 @@
         <div class="wrp"><img id="img3" class="gallery_class notselected" src="img/img3.jpg" /></div>
         <div class="wrp"><img id="img4" class="gallery_class notselected" src="img/img4.jpg"  /></div>
 </div>
-<div id= "touch" >
-
+<div id="touch" >
+<BR><h1>TAP HERE</h1>
 <div>
 <!--   USE THIS DIV AS THE TARGET FOR THE TAP HOLD INTERACTION  -->
 <p id="info"></p>
@@ -77,22 +89,37 @@
 var map = { "img1" : 1, "img2" : 2, "img3" : 3 , "img4" : 4}
 var map_info = { "img1" : "ETH Terrasse", "img2" : "ETH Main Building, interior", "img3" : "ETH Main Building", "img4" : "ETH Main Building 2"}
 var currSelected = 0;
-var numberOfImages = 4; 
+var numberOfImages = $(".gallery_class").length; 
 
-$("#box").tiltandtap({
+$("body").tiltandtap({
     onTiltRight  : selectNext,
     onTiltLeft    : selectPrevious,
+    tiltDown  : { onTiltDown: closeGalleryMode, interaction : {type: "press", element: "touch"}},
+    tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}}
 });
+
+function changeColor ()
+{
+    var rcolor=Math.floor((Math.random() * 250) + 1);
+    var gcolor=Math.floor((Math.random() * 250) + 1);
+    var bcolor=Math.floor((Math.random() * 250) + 1);
+    $("#touch").css("background-color", "rgb(" + rcolor + "," + gcolor + "," + bcolor + ")");
+}
 
 function select(current)
 {	
 	currSelected = current;
 
 	// unselect previous
+	$(".selected").removeClass("gallery-mode");
 	$(".selected").removeClass("selected");
 	
 	// select current
 	$(".gallery_class").eq(currSelected).addClass("selected");
+	if(isGalleryModeOn)
+	{
+		$(".gallery_class").eq(currSelected).addClass("gallery-mode");
+	}
 }
 
 function selectPrevious ()
@@ -105,11 +132,22 @@ function selectNext ()
 	select((currSelected+1)%numberOfImages);
 }
 
+var isGalleryModeOn = false;
+function openGalleryMode()
+{
+	isGalleryModeOn = true;
+	$(".selected").addClass("gallery-mode");
+}
+
+function closeGalleryMode()
+{
+	isGalleryModeOn = false;
+	$(".selected").removeClass("gallery-mode");
+}
+
+// openGalleryMode();
+
 </script>
-
-
-
-
 
 </body>
 </html>
