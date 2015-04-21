@@ -59,9 +59,9 @@
 	}
 	
 	#info {
-	position:absolute;
-	bottom:0%;
-	right: 10%;
+		position:absolute;
+		bottom:0%;
+		right: 10%;
 	}
     </style>
 
@@ -73,22 +73,18 @@
 
 <div id="box">
 <div class="thumbs-block" id="thumbs-block">
-   
         <div class="wrp"><img id="img1" class="gallery_class selected" src="img/img1.jpg" /></div>
         <div class="wrp"><img id="img2" class="gallery_class notselected" src="img/img2.jpg" /></div>
         <div class="wrp"><img id="img3" class="gallery_class notselected" src="img/img3.jpg" /></div>
         <div class="wrp"><img id="img4" class="gallery_class notselected" src="img/img4.jpg"  /></div>
 </div>
 <div id="touch" >
-	<img id="galleryImg" class="gallery-mode" src="" style="display:none">
-	<p id="info">
+	<img id="galleryImg" src="" style="display:none">
+	<p class="info">
 		<div id="divInfo"></div>
 	</p>
-	<!-- <BR><h1>TAP HERE</h1> -->
 </div>
 </div>
-
-<div id="box2"></div>
 
 <script>
 var map = { "img1" : 1, "img2" : 2, "img3" : 3 , "img4" : 4}
@@ -97,19 +93,17 @@ var map_info = { "img1" : "ETH Terrasse", "img2" : "ETH Main Building, interior"
 var currSelected = 0;
 var numberOfImages = $(".gallery_class").length; 
 
-$("#box").tiltandtap({
+$("#thumbs-block").tiltandtap({
     onTiltRight  : selectNext,
     onTiltLeft    : selectPrevious,
-    tiltDown  : { onTiltDown: closeGalleryMode, interaction : {type: "press", element: "touch"}},
-    tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}},
-    tiltDown    : { onTiltDown: tiltUpDown},
-    tiltUp    : { onTiltUp: tiltUpDown}
+    onTiltDown: tiltUpDown,
+    onTiltUp: tiltUpDown,
 });
 
-// $("#box2").tiltandtap({
-// 	onTiltUp: tiltUpDown,
-// 	onTiltDown: tiltUpDown,
-// });
+// $("#touch").tiltandtap({
+//     tiltDown  : { onTiltDown: closeGalleryMode, interaction : {type: "press", element: "touch"}},
+//     tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}},
+// })
 
 function changeColor ()
 {
@@ -124,7 +118,6 @@ function select(current)
 	currSelected = current;
 
 	// unselect previous
-	$(".selected").removeClass("gallery-mode");
 	$(".selected").removeClass("selected");
 	
 	// select current
@@ -217,7 +210,11 @@ function updateInfo()
 		$("#divInfo").css("display", "none");
 	}
 }
-
+// openGalleryMode();
+// tiltUpDown();
+// tiltUpDown();
+// tiltUpDown();
+// tiltUpDown();
 </script>
 
 </body>
