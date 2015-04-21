@@ -93,17 +93,14 @@ var map_info = { "img1" : "ETH Terrasse", "img2" : "ETH Main Building, interior"
 var currSelected = 0;
 var numberOfImages = $(".gallery_class").length; 
 
-$("#thumbs-block").tiltandtap({
-    onTiltRight  : selectNext,
-    onTiltLeft    : selectPrevious,
-    onTiltDown: tiltUpDown,
-    onTiltUp: tiltUpDown,
+$("#body").tiltandtap({
+   onTiltRight  : selectNext,
+   onTiltLeft    : selectPrevious,
+   onTiltDown: tiltUpDown,
+   onTiltUp: tiltUpDown,
+   tiltDown  : { onTiltDown: closeGalleryMode, interaction : {type: "press", element: "touch"}},
+   tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}},
 });
-
-// $("#touch").tiltandtap({
-//     tiltDown  : { onTiltDown: closeGalleryMode, interaction : {type: "press", element: "touch"}},
-//     tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}},
-// })
 
 function changeColor ()
 {
