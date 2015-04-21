@@ -69,7 +69,7 @@
 </head>
 <body>
 
-
+<div id="box">
 <div class="thumbs-block" id="thumbs-block">
    
         <div class="wrp"><img id="img1" class="gallery_class selected" src="img/img1.jpg" /></div>
@@ -78,12 +78,15 @@
         <div class="wrp"><img id="img4" class="gallery_class notselected" src="img/img4.jpg"  /></div>
 </div>
 <div id="touch" >
-<BR><h1>TAP HERE</h1>
-<div>
-<!--   USE THIS DIV AS THE TARGET FOR THE TAP HOLD INTERACTION  -->
-<p id="info"></p>
+	<BR><h1>TAP HERE</h1>
+	<div>
+	<!--   USE THIS DIV AS THE TARGET FOR THE TAP HOLD INTERACTION  -->
+	<p id="info"></p>
+	</div>
 </div>
 </div>
+
+<div id="box2"></div>
 
 <script>
 var map = { "img1" : 1, "img2" : 2, "img3" : 3 , "img4" : 4}
@@ -91,11 +94,16 @@ var map_info = { "img1" : "ETH Terrasse", "img2" : "ETH Main Building, interior"
 var currSelected = 0;
 var numberOfImages = $(".gallery_class").length; 
 
-$("body").tiltandtap({
+$("#box").tiltandtap({
     onTiltRight  : selectNext,
     onTiltLeft    : selectPrevious,
     tiltDown  : { onTiltDown: closeGalleryMode, interaction : {type: "press", element: "touch"}},
     tiltUp    : { onTiltUp: openGalleryMode, interaction : {type: "press", element: "touch"}}
+});
+
+$("#box2").tiltandtap({
+	onTiltUp: changeColor,
+	onTiltDown: changeColor,
 });
 
 function changeColor ()
