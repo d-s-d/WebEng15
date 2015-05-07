@@ -1,5 +1,6 @@
 var currentImage = 0; // the currently selected image
 var imageCount = 7; // the maximum number of images available
+var socket;
 
 function showImage (index){
     // Update selection on remote
@@ -10,7 +11,51 @@ function showImage (index){
 
     // Send the command to the screen
     // TODO
-    alert("TODO send the index to the screen")
+    socket.emit('select', {index: index});
+}
+
+function clearNode(node) {
+	while(node.hasChildNodes())
+	{
+		node.removeChild(node.firstChild);
+	}
+}
+
+var screens = [];
+
+function emitAttachEvent(eventName, screenName) {
+	socket.emit(eventName, {screenName: screenName});
+}
+
+function updateScreens(screenList) {
+	screens = screenList;
+	var listNode = document.querySelector("#menuList");
+	clearNode(listNode);
+	for(var i in screenList) {
+		var liScreen = document.createElement("li");
+		var pScreenName = document.createElement("p");
+		var screen = screenList[i];
+		pScreenName.textContent = screen.screenName;
+		btnAttach = document.createElement("button");
+		btnAttach.textContent = "Connect";
+		btnAttach.addEventListener("click", (
+			function(screen, btn) {
+				return function(event) {
+					if( screen.attached === true ) {
+						btn.textContent = "Connect";
+						emitAttachEvent("detatch", screen.screenName);
+						// 
+					} else {
+						btn.textContent = "Disconnect";
+						emitAttachEvent("attach", screen.screenName);
+					}
+					screen.attached = !screen.attached;
+				}			
+		})(screen, btnAttach));
+		liScreen.appendChild(pScreenName);
+		liScreen.appendChild(btnAttach);
+		listNode.appendChild(liScreen);
+	}
 }
 
 function initialiseGallery(){
@@ -43,4 +88,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function connectToServer(){
     // TODO connect to the socket.io server
+		socket = io.connect('http://localhost:8080');
+		socket.emit('registerRemote', {});
+
+		socket.on('updateScreenList', function(data) {
+			updateScreens(data.screens);
+		});
 }

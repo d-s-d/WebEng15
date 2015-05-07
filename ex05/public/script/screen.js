@@ -1,5 +1,6 @@
 var devicename; // the name of this screen and specified in the URL
 var imageCount = 7; // the maximum number of images available
+var socket;
 
 document.addEventListener("DOMContentLoaded", function(event) {
     devicename = getQueryParams().name;
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     connectToServer();
+		registerScreen(devicename);
 });
 
 function showImage (index){
@@ -42,7 +44,17 @@ function getQueryParams() {
     return params;
 }
 
+function registerScreen(screenName) 
+{
+	socket.emit('registerScreen', { screenName: screenName });
+}
 
 function connectToServer(){
     // TODO connect to the socket.io server
+		socket = io.connect('http://localhost:8080');
+		socket.on('detatch', function() {
+		});
+
+		socket.on('attach', function() {
+		});
 }
