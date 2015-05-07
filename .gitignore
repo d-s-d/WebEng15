@@ -45,3 +45,5 @@ ex01_improved/**/css/*.css
 *.swp
 
 base*.zip
+
+**/node_modules
