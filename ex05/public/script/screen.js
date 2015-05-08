@@ -52,9 +52,11 @@ function registerScreen(screenName)
 function connectToServer(){
     // TODO connect to the socket.io server
 		socket = io.connect('http://localhost:8080');
-		socket.on('detatch', function() {
+		socket.on('selectionUpdate', function(data) {
+			showImage(data.index);
 		});
 
-		socket.on('attach', function() {
+		socket.on('detatch', function() {
+			clearImage();	
 		});
 }

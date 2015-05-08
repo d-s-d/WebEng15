@@ -10,7 +10,6 @@ function showImage (index){
     images[index].classList.toggle("selected");
 
     // Send the command to the screen
-    // TODO
     socket.emit('select', {index: index});
 }
 
@@ -37,7 +36,7 @@ function updateScreens(screenList) {
 		var screen = screenList[i];
 		pScreenName.textContent = screen.screenName;
 		btnAttach = document.createElement("button");
-		btnAttach.textContent = "Connect";
+		btnAttach.textContent = screen.attached ? "Disconnect" : "Connect";
 		btnAttach.addEventListener("click", (
 			function(screen, btn) {
 				return function(event) {

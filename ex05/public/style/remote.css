@@ -14,6 +14,14 @@ button {
     margin: 8px;
 }
 
+li {
+	clear:both;
+}
+
+li p {
+	float: left;
+}
+
 #menu {
     display: none;
     margin: 4%;

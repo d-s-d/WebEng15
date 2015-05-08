@@ -10,6 +10,7 @@ http.listen(8080, function(){
 });
 
 var remote;
+var currentIndex = 0;
 var screens = [];
 
 function findScreen(screenName) {
@@ -32,6 +33,23 @@ function findScreenIndexBySocket(socket) {
 	}
 }
 
+function emitRemoteScreenListUpdate() 
+{
+	if(remote) {
+		remote.emit('updateScreenList', {screens: getScreenList()});
+	}
+}
+
+function changeScreenAttachment(screenName, state) {
+	var s = findScreen(screenName);
+	s.attached = state;
+	if( state === false )
+	{
+		s.socket.emit('detatch', {});
+	}
+	emitRemoteScreenListUpdate();
+}
+
 function getScreenList() {
 	var list = [];
 	for( var i in screens ) {
@@ -41,10 +59,12 @@ function getScreenList() {
 	return list;
 }
 
-function emitRemoteScreenListUpdate() 
-{
-	if(remote) {
-		remote.emit('updateScreenList', {screens: getScreenList()});
+function emitSelectionUpdate(index) {
+	for( var i in screens ) {
+		var s = screens[i];
+		if( s.attached === true ) {
+			s.socket.emit('selectionUpdate', {index: index});
+		}
 	}
 }
 
@@ -64,17 +84,19 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('attach', function(data) {
-		console.log(data);
-		var s = findScreen(data.screenName);
-		s.attached = true;
-		console.log('attached screen' + s.screenName);
+		changeScreenAttachment(data.screenName, true);
+		emitSelectionUpdate(currentIndex);
+		console.log('attached screen' + data.screenName);
 	});
 
 	socket.on('detatch', function(data) {
-		console.log(data);
-		var s = findScreen(data.screenName);
-		s.attached = false;
-		console.log('detatched screen ' + s.screenName);
+		changeScreenAttachment(data.screenName, false);
+		console.log('detatched screen ' + data.screenName);
+	});
+
+	socket.on('select', function(data) {
+		currentIndex = data.index;
+		emitSelectionUpdate(currentIndex);
 	});
 
 	socket.on('disconnect', function() {
